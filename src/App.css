@@ -4,8 +4,8 @@
     grid-template-areas:
             'h h h h'
             '. n c .';
-    grid-template-rows: 70px 1fr;
-    grid-template-columns: 3px 2fr 10fr 3px;
+    grid-template-rows: 70px 1fr;;
+    grid-template-columns: 3px 2fr 8fr 3px;
     grid-gap: 15px;
     width: 100%;
 }

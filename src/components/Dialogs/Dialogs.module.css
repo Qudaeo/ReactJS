@@ -2,17 +2,25 @@
     display: grid;
     grid-template-columns: 2fr 8fr;
     padding-left: 25px;
-    padding-top: 15px;
+    padding-top: 10px;
 
 }
 
 .dialogItems .dialog {
+
+}
+
+.dialogItems .dialog a {
+    text-decoration: none;
     color: navy;
 }
 
-.dialogItems .active {
+
+/*
+.dialogItems .active a {
     color: blue;
 }
+*/
 
 .messages {
     border-left-style: groove;

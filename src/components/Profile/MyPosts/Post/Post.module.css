@@ -1,3 +1,7 @@
-.item img{
+.item img {
     width: 75px;
+}
+
+.item {
+    margin-top: 15px;
 }

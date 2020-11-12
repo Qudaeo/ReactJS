@@ -2,8 +2,8 @@
     grid-area: n;
     background-color: beige;
     padding-left: 25px;
-    padding-top: 15px;
-    height: 70vh;
+    padding-top: 10px;
+    /*    height: 70vh;*/
 }
 
 .item a{

@@ -6,11 +6,15 @@
             '. n c .';
     grid-template-rows: 70px 1fr;;
     grid-template-columns: 3px 2fr 8fr 3px;
-    grid-gap: 15px;
+    grid-column-gap: 15px;
+    grid-row-gap: 5px;
     width: 100%;
+    height: 100vh;
 }
 
 .app-wrapper-content {
     grid-area: c;
-    background-color: white;
+    overflow: inherit;
+
+    background-color: ghostwhite;
 }

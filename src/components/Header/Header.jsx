@@ -1,9 +1,14 @@
+import React from 'react'
 import s from './Header.module.css'
+import logo from './logo.png'
+import {NavLink} from "react-router-dom";
 
 const Header = () => {
-    return(
+    return (
         <header className={s.header}>
-            <img src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Logo_TV_2015.svg/800px-Logo_TV_2015.svg.png'/>
+            <NavLink to='/'>
+                <img src={logo} alt="iLike"/>
+            </NavLink>
         </header>
     )
 }

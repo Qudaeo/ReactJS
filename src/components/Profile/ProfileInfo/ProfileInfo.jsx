@@ -1,15 +1,16 @@
 import React from 'react'
 import s from './ProfileInfo.module.css'
+import topImg from './topImage.png'
 
 const ProfileInfo = () => {
     return (
         <div>
             <div>
                 <img alt="" className={s.topImage}
-                     src={'https://www.publicdomainpictures.net/pictures/320000/velka/background-image.png'}/>
+                     src={topImg}/>
             </div>
             <div className={s.description}>
-                ava + desciption
+                ava + description
             </div>
         </div>
     )

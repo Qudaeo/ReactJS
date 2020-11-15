@@ -1,3 +1,4 @@
+import React from 'react'
 import s from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 
@@ -10,7 +11,7 @@ const DialogItem = (props) => {
 }
 
 const MessageItem = (props) => {
-    return <div className={s.massage}>{props.message}</div>
+    return <div>{props.message}</div>
 }
 
 const Dialogs = () => {

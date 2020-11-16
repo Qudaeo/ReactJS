@@ -3,11 +3,11 @@
     display: grid;
     grid-template-areas:
             'h h h h'
-            '. n c .';
-    grid-template-rows: 70px 1fr;;
-    grid-template-columns: 3px 2fr 8fr 3px;
-    grid-column-gap: 15px;
-    grid-row-gap: 5px;
+            'n . c .';
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 2fr 5px 8fr 5px;
+    /*    grid-column--gap: 7px;*/
+    /*    grid-row-gap: 5px;*/
     width: 100%;
     height: 100vh;
 }
@@ -16,5 +16,5 @@
     grid-area: c;
     overflow: inherit;
 
-    background-color: ghostwhite;
+    background-color: white;
 }

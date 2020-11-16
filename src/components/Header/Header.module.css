@@ -6,7 +6,13 @@
 }
 
 .header img {
-    height: 50px;
-    padding-left: 40px;
-    padding-top: 10px;
+    height: 40px;
+    padding-left: 15px;
+    padding-top: 5px;
 }
+
+/*
+.logoImg  {
+    background: url(./logo.png) center no-repeat;
+}
+*/

@@ -1,7 +1,8 @@
-.item img {
-    width: 75px;
-}
-
 .item {
     margin-top: 15px;
+}
+
+.item img {
+    width: 75px;
+    border-radius: 30px;
 }

@@ -1,7 +1,7 @@
-import s from './Music.module.css'
+// import s from './Music.module.css'
 
-const Music = (props) => {
-    return(
+const Music = () => {
+    return (
         <div>
             Music
         </div>

@@ -3,11 +3,6 @@
     grid-template-columns: 2fr 8fr;
     padding-left: 25px;
     padding-top: 10px;
-
-}
-
-.dialogItems .dialog {
-
 }
 
 .dialogItems .dialog a {
@@ -15,15 +10,8 @@
     color: navy;
 }
 
-
-/*
-.dialogItems .active a {
-    color: blue;
-}
-*/
-
 .messages {
     border-left-style: groove;
-    padding-left: 20px;
+    padding-left: 5px;
     color: navy;
 }

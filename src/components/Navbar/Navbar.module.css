@@ -8,6 +8,7 @@
 .item a{
     color: navy;
     text-decoration: none;
+
 }
 
 .item a.activeLink {

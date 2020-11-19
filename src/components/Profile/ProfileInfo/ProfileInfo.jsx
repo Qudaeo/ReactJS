@@ -1,4 +1,3 @@
-import React from 'react'
 import s from './ProfileInfo.module.css'
 import topImg from './topImage.png'
 

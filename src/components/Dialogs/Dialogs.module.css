@@ -5,11 +5,6 @@
     padding-top: 10px;
 }
 
-.dialogItems .dialog a {
-    text-decoration: none;
-    color: navy;
-}
-
 .messages {
     border-left-style: groove;
     padding-left: 5px;

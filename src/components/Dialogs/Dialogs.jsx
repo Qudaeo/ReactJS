@@ -7,7 +7,9 @@ const Dialogs = (props) => {
     let newMessageElement = React.createRef();
 
     let addMessage = () => {
-        alert(newMessageElement.current.value)
+        let text = newMessageElement.current.value
+        props.addMessage(text)
+        newMessageElement.current.value = ''
     }
 
     let userElements = props.state.users.map(u => <DialogItem userId={u.id} userName={u.name}/>)
@@ -16,7 +18,7 @@ const Dialogs = (props) => {
     return (
         <div>
             <div className={s.Dialogs}>
-                <div className={s.dialogItems}>
+                <div>
                     {userElements}
                 </div>
                 <div className={s.messages}>
@@ -28,7 +30,7 @@ const Dialogs = (props) => {
                     <textarea ref={newMessageElement}/>
                 </div>
                 <div>
-                    <button onClick={addMessage}>New message</button>
+                    <button onClick={addMessage}>Send message</button>
                 </div>
             </div>
         </div>

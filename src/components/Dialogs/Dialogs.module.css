@@ -1,13 +1,14 @@
 .Dialogs {
     display: grid;
-    grid-template-columns: 2fr 8fr;
+    grid-template-columns: 3fr 8fr;
     padding-left: 25px;
     padding-top: 10px;
 }
 
 .messages {
     border-left-style: groove;
-    padding-left: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     color: navy;
 }
 

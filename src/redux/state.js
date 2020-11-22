@@ -1,3 +1,5 @@
+import {renderEntireTree} from "../render";
+
 let state = {
     dialogsPage: {
         users: [
@@ -29,6 +31,28 @@ let state = {
             {id: 3, name: 'Yana'}
         ]
     }
+}
+
+export let addMessage = (newMessage) => {
+    let newPostElement = {
+        id: 6,
+        message: newMessage,
+        isMyMessage: true
+    }
+    state.dialogsPage.messages.push(newPostElement)
+
+    renderEntireTree(state)
+}
+
+export let addPost = (newPost) => {
+    let newMessageElement = {
+        id: 5,
+        message: newPost,
+        likesCount: 0
+    }
+    state.profilePage.posts.push(newMessageElement)
+
+    renderEntireTree(state)
 }
 
 export default state;

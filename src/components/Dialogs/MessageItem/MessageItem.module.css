@@ -1,3 +1,11 @@
 .myMessage {
     text-align: right;
 }
+
+.myMessage img {
+    height: 15px;
+}
+
+.friendMessage img {
+    height: 15px;
+}

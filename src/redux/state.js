@@ -14,7 +14,8 @@ let state = {
             {id: 3, message: 'yo', isMyMessage: false},
             {id: 4, message: 'yo', isMyMessage: true},
             {id: 5, message: 'yo', isMyMessage: false}
-        ]
+        ],
+        newMessageText: ''
     },
     profilePage: {
         posts: [
@@ -22,7 +23,8 @@ let state = {
             {id: 2, message: 'It\'s my first post!', likesCount: 10},
             {id: 3, message: 'yo yo yo', likesCount: 1},
             {id: 4, message: 'DADA', likesCount: 0}
-        ]
+        ],
+        newPostText: ''
     },
     navbarPage: {
         friends: [
@@ -33,24 +35,43 @@ let state = {
     }
 }
 
-export let addMessage = (newMessage) => {
+window.state = state
+
+export let addMessage = () => {
     let newPostElement = {
         id: 6,
-        message: newMessage,
+        message: state.dialogsPage.newMessageText,
         isMyMessage: true
     }
     state.dialogsPage.messages.push(newPostElement)
 
+    state.dialogsPage.newMessageText = ''
+
+    renderEntireTree(state)
+
+}
+
+export let updateMessageText = (newMessageText) => {
+    state.dialogsPage.newMessageText = newMessageText
     renderEntireTree(state)
 }
 
-export let addPost = (newPost) => {
+export let addPost = () => {
     let newMessageElement = {
         id: 5,
-        message: newPost,
+        message: state.profilePage.newPostText,
         likesCount: 0
     }
     state.profilePage.posts.push(newMessageElement)
+
+    state.profilePage.newPostText = ''
+
+    renderEntireTree(state)
+}
+
+export let updatePostText = (newPostText) => {
+
+    state.profilePage.newPostText = newPostText
 
     renderEntireTree(state)
 }

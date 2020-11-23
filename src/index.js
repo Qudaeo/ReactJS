@@ -1,8 +1,28 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import state from './redux/state'
-import {renderEntireTree} from "./render";
+import state, {addMessage, addPost, subscribe, updateMessageText, updatePostText} from './redux/state'
+import App from './App';
+import {BrowserRouter} from "react-router-dom";
+
+export const renderEntireTree = (state) => {
+    ReactDOM.render(
+        <React.StrictMode>
+            <BrowserRouter>
+                <App state={state}
+                     addMessage={addMessage}
+                     updateMessageText={updateMessageText}
+                     addPost={addPost}
+                     updatePostText={updatePostText}
+                />
+            </BrowserRouter>
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+}
+
+subscribe(renderEntireTree)
 
 renderEntireTree(state)
 

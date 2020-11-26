@@ -7,12 +7,15 @@ const Dialogs = (props) => {
     let newMessageElement = React.createRef();
 
     let addMessage = () => {
-        props.addMessage()
+        props.dispatch({type: 'ADD-MESSAGE'})
+//        props.addMessage()
     }
 
     let updateMessageText = () => {
         let text = newMessageElement.current.value
-        props.updateMessageText(text)
+        let action = {type: 'UPDATE-MESSAGE-TEXT', newMessageText: text};
+        props.dispatch(action)
+//        props.updateMessageText(text)
     }
 
     let userElements = props.state.users.map(u => <DialogItem userId={u.id} userName={u.name}/>)

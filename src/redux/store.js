@@ -36,51 +36,43 @@ let store = {
             ]
         },
     },
-
-
-    getState() {
-        return this._state
-    },
-
-    addMessage() {
-        let newPostElement = {
-            id: 6,
-            message: this._state.dialogsPage.newMessageText,
-            isMyMessage: true
-        }
-        this._state.dialogsPage.messages.push(newPostElement)
-        this._state.dialogsPage.newMessageText = ''
-        this._renderEntireTree(this._state)
-    },
-
-    updateMessageText(newMessageText) {
-        this._state.dialogsPage.newMessageText = newMessageText
-        this._renderEntireTree(this._state)
-    },
-
-
-    addPost() {
-        let newMessageElement = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        }
-        this._state.profilePage.posts.push(newMessageElement)
-        this._state.profilePage.newPostText = ''
-        this._renderEntireTree(this._state)
-    },
-
-    updatePostText(newPostText) {
-        this._state.profilePage.newPostText = newPostText
-        this._renderEntireTree(this._state)
-    },
-
     _renderEntireTree() {
         console.log('No subscribers!')
     },
 
+    getState() {
+        return this._state
+    },
     subscribe(observer) {
         this._renderEntireTree = observer
+    },
+
+    dispatch(action) {
+        if (action.type === 'ADD-MESSAGE') {
+            let newPostElement = {
+                id: 6,
+                message: this._state.dialogsPage.newMessageText,
+                isMyMessage: true
+            }
+            this._state.dialogsPage.messages.push(newPostElement)
+            this._state.dialogsPage.newMessageText = ''
+            this._renderEntireTree(this._state)
+        } else if (action.type === 'UPDATE-MESSAGE-TEXT') {
+            this._state.dialogsPage.newMessageText = action.newMessageText
+            this._renderEntireTree(this._state)
+        } else if (action.type === 'ADD-POST') {
+            let newMessageElement = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            }
+            this._state.profilePage.posts.push(newMessageElement)
+            this._state.profilePage.newPostText = ''
+            this._renderEntireTree(this._state)
+        } else if (action.type === 'UPDATE-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newPostText
+            this._renderEntireTree(this._state)
+        }
     }
 
 }

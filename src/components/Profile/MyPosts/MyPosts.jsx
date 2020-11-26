@@ -8,12 +8,13 @@ const MyPosts = (props) => {
     let postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
     let addPost = () => {
-        props.addPost()
+        props.dispatch({type: 'ADD-POST'})
     }
 
     let updatePostText = () => {
         let text = newPostElement.current.value
-        props.updatePostText(text)
+        let action = {type: 'UPDATE-POST-TEXT', newPostText: text};
+        props.dispatch(action)
     }
 
     return (

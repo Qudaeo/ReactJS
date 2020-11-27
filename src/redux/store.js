@@ -1,4 +1,12 @@
-"use strict";
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
+const ADD_POST = 'ADD-POST';
+const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
+
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE});
+export const updateMessageTextActionCreator = (text) => ({type: UPDATE_MESSAGE_TEXT, newMessageText: text});
+export const addPostActionCreator = () => ({type: ADD_POST});
+export const updatePostTextActionCreator = (text) => ({type: UPDATE_POST_TEXT, newPostText: text});
 
 let store = {
     _state: {
@@ -43,12 +51,13 @@ let store = {
     getState() {
         return this._state
     },
+
     subscribe(observer) {
         this._renderEntireTree = observer
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-MESSAGE') {
+        if (action.type === ADD_MESSAGE) {
             let newPostElement = {
                 id: 6,
                 message: this._state.dialogsPage.newMessageText,
@@ -57,10 +66,10 @@ let store = {
             this._state.dialogsPage.messages.push(newPostElement)
             this._state.dialogsPage.newMessageText = ''
             this._renderEntireTree(this._state)
-        } else if (action.type === 'UPDATE-MESSAGE-TEXT') {
+        } else if (action.type === UPDATE_MESSAGE_TEXT) {
             this._state.dialogsPage.newMessageText = action.newMessageText
             this._renderEntireTree(this._state)
-        } else if (action.type === 'ADD-POST') {
+        } else if (action.type === ADD_POST) {
             let newMessageElement = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
@@ -69,7 +78,7 @@ let store = {
             this._state.profilePage.posts.push(newMessageElement)
             this._state.profilePage.newPostText = ''
             this._renderEntireTree(this._state)
-        } else if (action.type === 'UPDATE-POST-TEXT') {
+        } else if (action.type === UPDATE_POST_TEXT) {
             this._state.profilePage.newPostText = action.newPostText
             this._renderEntireTree(this._state)
         }
@@ -77,51 +86,6 @@ let store = {
 
 }
 
-
 window.store = store
 
 export default store;
-
-
-/*export const addMessage = () => {
-    let newPostElement = {
-        id: 6,
-        message: state.dialogsPage.newMessageText,
-        isMyMessage: true
-    }
-    state.dialogsPage.messages.push(newPostElement)
-
-    state.dialogsPage.newMessageText = ''
-
-    renderEntireTree(state)
-
-}
-
-export const updateMessageText = (newMessageText) => {
-    state.dialogsPage.newMessageText = newMessageText
-    renderEntireTree(state)
-}
-
-export const addPost = () => {
-    let newMessageElement = {
-        id: 5,
-        message: state.profilePage.newPostText,
-        likesCount: 0
-    }
-    state.profilePage.posts.push(newMessageElement)
-
-    state.profilePage.newPostText = ''
-
-    renderEntireTree(state)
-}
-
-export const updatePostText = (newPostText) => {
-
-    state.profilePage.newPostText = newPostText
-
-    renderEntireTree(state)
-}
-
-export const subscribe = (observer) => {
-    renderEntireTree = observer
-}*/

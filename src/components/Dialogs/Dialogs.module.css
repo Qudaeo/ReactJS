@@ -1,6 +1,6 @@
 .Dialogs {
     display: grid;
-    grid-template-columns: 3fr 8fr;
+    grid-template-columns: 1fr 2fr;
     padding-left: 25px;
     padding-top: 10px;
 }

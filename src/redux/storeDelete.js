@@ -1,8 +1,9 @@
+/*
 import navbarReducer from "./navbarReducer";
 import profileReducer from "./profileReducer";
 import dialogsReducer from "./dialogsReducer";
 
-let store = {
+let storeDelete = {
     _state: {
         dialogsPage: {
             users: [
@@ -46,7 +47,7 @@ let store = {
         return this._state
     },
 
-    callSubscriber(observer) {
+    subscribe(observer) {
         this._renderEntireTree = observer
     },
 
@@ -59,6 +60,7 @@ let store = {
     }
 }
 
-window.store = store
+window.store = storeDelete
 
-export default store;
+export default storeDelete;
+ */

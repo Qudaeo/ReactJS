@@ -5,7 +5,17 @@ export const addPostActionCreator = () => ({type: ADD_POST});
 export const updatePostTextActionCreator = (text) =>
     ({type: UPDATE_POST_TEXT, newPostText: text});
 
-const profileReducer = (state, action) => {
+let initialProfilePage = {
+    posts: [
+        {id: 1, message: 'Hey, how are you?', likesCount: 3},
+        {id: 2, message: 'It\'s my first post!', likesCount: 10},
+        {id: 3, message: 'yo yo yo', likesCount: 1},
+        {id: 4, message: 'DADA', likesCount: 0}
+    ],
+    newPostText: ''
+}
+
+const profileReducer = (state = initialProfilePage, action) => {
     switch (action.type) {
         case ADD_POST:
             let newMessageElement = {

@@ -39,7 +39,7 @@ let storeDelete = {
             ]
         },
     },
-    _renderEntireTree() {
+    _callSubscriber() {
         console.log('No subscribers!')
     },
 
@@ -48,7 +48,7 @@ let storeDelete = {
     },
 
     subscribe(observer) {
-        this._renderEntireTree = observer
+        this._callSubscriber = observer
     },
 
     dispatch(action) {

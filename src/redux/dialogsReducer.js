@@ -24,20 +24,24 @@ let initialDialogPage = {
 
 const dialogsReducer = (state = initialDialogPage, action) => {
     switch (action.type) {
-        case ADD_MESSAGE:
+        case ADD_MESSAGE: {
             let newPostElement = {
                 id: 6,
                 message: state.newMessageText,
                 isMyMessage: true
             }
-            state.messages.push(newPostElement)
-            state.newMessageText = ''
-
-            return state
-        case UPDATE_MESSAGE_TEXT:
-            state.newMessageText = action.newMessageText
-
-            return state
+            return {
+                ...state,
+                messages: [...state.messages, newPostElement],
+                newMessageText: ''
+            }
+        }
+        case UPDATE_MESSAGE_TEXT: {
+            return {
+                ...state,
+                newMessageText: action.newMessageText
+            }
+        }
         default:
             return state
     }

@@ -5,10 +5,12 @@ import MessageItem from "./MessageItem/MessageItem";
 
 const Dialogs = (props) => {
     let userElements = props.users.map(u => <DialogItem
+        key={u.id}
         userId={u.id}
         userName={u.name}/>)
 
     let messageElements = props.messages.map(m => <MessageItem
+        key={m.id}
         message={m.message}
         isMyMessage={m.isMyMessage}/>)
 

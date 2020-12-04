@@ -3,54 +3,32 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
 
 let initialFriendsPage = {
-    users: [
-        /*
-        {
-            id: 1,
-            fullName: 'Dmitriy',
-            status: 'I am boss',
-            followed: false,
-            location: {city: 'Minsk', country: 'Belarus'}
-        },
-        {
-            id: 2,
-            fullName: 'Andrew',
-            status: 'I am boss too',
-            followed: true,
-            location: {city: 'Moscow', country: 'Russia'}
-        },
-        {
-            id: 3,
-            fullName: 'Sasha',
-            status: 'I am boss too too',
-            followed: false,
-            location: {city: 'Kiev', country: 'Ukraine'}
-        }
-
-         */
-    ]
+    users: []
 }
 
 const friendsReducer = (state = initialFriendsPage, action) => {
     switch (action.type) {
         case FOLLOW: {
+
             return {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId)
-                        return { ...u, followed: true }
+                        return {...u, followed: true}
                     else
                         return u
+
                 })
 
             }
         }
         case UNFOLLOW: {
+
             return {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId)
-                        return {...u, followed: false }
+                        return {...u, followed: false}
                     else
                         return u
                 })

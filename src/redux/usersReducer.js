@@ -6,9 +6,9 @@ let initialFriendsPage = {
     users: []
 }
 
-const friendsReducer = (state = initialFriendsPage, action) => {
+const usersReducer = (state = initialFriendsPage, action) => {
     switch (action.type) {
-        case FOLLOW: {
+        case FOLLOW:
 
             return {
                 ...state,
@@ -17,13 +17,10 @@ const friendsReducer = (state = initialFriendsPage, action) => {
                         return {...u, followed: true}
                     else
                         return u
-
                 })
-
             }
-        }
-        case UNFOLLOW: {
 
+        case UNFOLLOW:
             return {
                 ...state,
                 users: state.users.map(u => {
@@ -32,15 +29,14 @@ const friendsReducer = (state = initialFriendsPage, action) => {
                     else
                         return u
                 })
-
             }
-        }
-        case SET_USERS: {
+
+        case SET_USERS:
             return {
                 ...state,
                 users: [...state.users, ...action.users]
             }
-        }
+
         default:
             return state
     }
@@ -50,4 +46,4 @@ export const followAC = (userId) => ({type: FOLLOW, userId});
 export const unfollowAC = (userId) => ({type: UNFOLLOW, userId});
 export const setUsersAC = (users) => ({type: SET_USERS, users});
 
-export default friendsReducer
+export default usersReducer

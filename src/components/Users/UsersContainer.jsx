@@ -1,12 +1,10 @@
-import Friends from "./Friends";
+import Users from "./Users";
 import {connect} from "react-redux";
-import {followAC, setUsersAC, unfollowAC} from "../../redux/friendsReducer";
+import {followAC, setUsersAC, unfollowAC} from "../../redux/usersReducer";
 
-let mapStateToProps = (state) => {
-    return {
+let mapStateToProps = (state) => ({
         users: state.friendsPage.users
-    }
-}
+})
 
 let mapDispatchToProps = (dispatch) => ({
     follow: (userId) => dispatch(followAC(userId)),
@@ -14,6 +12,4 @@ let mapDispatchToProps = (dispatch) => ({
     setUsers: (users) => dispatch(setUsersAC(users))
 })
 
-const FriendsContainer = connect(mapStateToProps, mapDispatchToProps)(Friends)
-
-export default FriendsContainer
+export default connect(mapStateToProps, mapDispatchToProps)(Users)

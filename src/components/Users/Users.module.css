@@ -1,3 +1,11 @@
 .userAva {
     width: 75px;
 }
+
+.selectedPage {
+    font-weight: bold;
+}
+
+span {
+    cursor: pointer;
+}

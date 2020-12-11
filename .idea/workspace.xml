@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c184be3a-a19d-4fcc-b2dd-6f3302d9b97f" name="Default Changelist" comment="add withRouter in ProfileContainer.jsx">
+      <change afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/usersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1l2r11ty941WTOSdO1Q1j2YKAZR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Header" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\react\iLike\src\components\Header" />
+      <recent name="C:\react\iLike\src\redux" />
+      <recent name="C:\react\iLike\src\components\Profile" />
+      <recent name="C:\react\iLike\src\components\common\Preloader" />
+      <recent name="C:\react\iLike\src\components\Users" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\react\iLike\src\assets\images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c184be3a-a19d-4fcc-b2dd-6f3302d9b97f" name="Default Changelist" comment="" />
+      <created>1606805811296</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606805811296</updated>
+      <workItem from="1606805814261" duration="103000" />
+      <workItem from="1606805996630" duration="3391000" />
+      <workItem from="1606826620888" duration="3100000" />
+      <workItem from="1606830748485" duration="1768000" />
+      <workItem from="1606968629906" duration="9096000" />
+      <workItem from="1607045399757" duration="12412000" />
+      <workItem from="1607179827926" duration="3932000" />
+      <workItem from="1607222550050" duration="13016000" />
+      <workItem from="1607430323505" duration="5424000" />
+      <workItem from="1607500004392" duration="14013000" />
+      <workItem from="1607580228319" duration="174000" />
+      <workItem from="1607580452365" duration="71000" />
+      <workItem from="1607580538579" duration="291000" />
+      <workItem from="1607660259307" duration="37000" />
+      <workItem from="1607667451756" duration="113000" />
+      <workItem from="1607667587161" duration="286000" />
+      <workItem from="1607667884589" duration="1376000" />
+      <workItem from="1607676575047" duration="10814000" />
+    </task>
+    <task id="LOCAL-00001" summary="add shallow copy">
+      <created>1606989793417</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1606989793417</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add friends reducer">
+      <created>1607009675603</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607009675603</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add friends page">
+      <created>1607076740600</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607076740600</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add class component users">
+      <created>1607233940003</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607233940003</updated>
+    </task>
+    <task id="LOCAL-00005" summary="split users component">
+      <created>1607440295861</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607440295861</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add loading.gif in UsersContainer.jsx">
+      <created>1607513444327</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607513444327</updated>
+    </task>
+    <task id="LOCAL-00007" summary="edit profile page">
+      <created>1607669205225</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607669205225</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add withRouter in ProfileContainer.jsx">
+      <created>1607678446480</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1607678446480</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add shallow copy" />
+    <MESSAGE value="add friends reducer" />
+    <MESSAGE value="add friends page" />
+    <MESSAGE value="add class component users" />
+    <MESSAGE value="split users component" />
+    <MESSAGE value="add loading.gif in UsersContainer.jsx" />
+    <MESSAGE value="edit profile page" />
+    <MESSAGE value="add withRouter in ProfileContainer.jsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="add withRouter in ProfileContainer.jsx" />
+  </component>
+</project>

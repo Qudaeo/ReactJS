@@ -1,10 +1,6 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
 
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE});
-export const updateMessageTextActionCreator = (text) =>
-    ({type: UPDATE_MESSAGE_TEXT, newMessageText: text});
-
 let initialDialogPage = {
     users: [
         {id: 1, name: 'Dimych'},
@@ -46,5 +42,9 @@ const dialogsReducer = (state = initialDialogPage, action) => {
             return state
     }
 }
+
+export const addMessage = () => ({type: ADD_MESSAGE});
+export const updateMessageText = (text) =>
+    ({type: UPDATE_MESSAGE_TEXT, newMessageText: text});
 
 export default dialogsReducer

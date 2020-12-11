@@ -7,13 +7,15 @@ import Preloader from "../common/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.toggleIsFetching(true)
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageUsersSize}&page=${this.props.currentPage}`)
-            .then(response => {
-                this.props.toggleIsFetching(false)
-                this.props.setUsers(response.data.items, response.data.totalCount)
-            })
+        if (this.props.users.length === 0) {
+            this.props.toggleIsFetching(true)
+            axios
+                .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageUsersSize}&page=${this.props.currentPage}`)
+                .then(response => {
+                    this.props.toggleIsFetching(false)
+                    this.props.setUsers(response.data.items, response.data.totalCount)
+                })
+        }
     }
 
     onChangePage = (pageNumber) => {
@@ -29,7 +31,7 @@ class UsersContainer extends React.Component {
 
     render() {
         return <>
-            {this.props.isFetching&& <Preloader /> }
+            {this.props.isFetching && <Preloader/>}
 
             <Users
                 users={this.props.users}
@@ -53,18 +55,9 @@ let mapStateToProps = (state) => ({
     isFetching: state.usersPage.isFetching
 })
 
-/*let mapDispatchToProps = (dispatch) => ({
-    follow: (userId) => dispatch(followAC(userId)),
-    unfollow: (userId) => dispatch(unfollowAC(userId)),
-    setUsers: (users, totalUsersCount) => dispatch(setUsersAC(users, totalUsersCount)),
-    setCurrentPage: (currentPage) => dispatch(setCurrentPageAC(currentPage)),
-    toggleIsFetching: (isFetching) => dispatch(toggleIsFetchingAC(isFetching))
-
-})*/
-
 export default connect(mapStateToProps,
     {
         follow, unfollow, setUsers,
-        setCurrentPage,toggleIsFetching
+        setCurrentPage, toggleIsFetching
     }
 )(UsersContainer)

@@ -8,7 +8,7 @@ let initialFriendsPage = {
     users: [],
     currentPage: 1,
     totalUsersCount: 0,
-    pageUsersSize: 100,
+    pageUsersSize: 5,
     isFetching: true
 }
 

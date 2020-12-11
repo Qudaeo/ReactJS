@@ -3,6 +3,7 @@ import topImg from './topImage.png'
 import Preloader from "../../common/Preloader/Preloader";
 
 const ProfileInfo = (props) => {
+
     if (!props.profile) {
         return <Preloader/>
     } else {

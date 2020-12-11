@@ -11,8 +11,12 @@
     padding-top: 5px;
 }
 
-/*
-.logoImg  {
-    background: url(./logo.png) center no-repeat;
+.loginBlock {
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
 }
-*/
+
+.loginBlock a {
+    text-decoration: none;
+}

@@ -33,8 +33,8 @@ const Users = (props) => {
                 {pages.map(p => <span key={p} onClick={() => props.onChangePage(p)}
                                       className={(props.currentPage === p) ? styles.selectedPage : ''}>
                     {(p < 4 || Math.abs(props.currentPage - p) < 3 || (pages.length - p < 3))
-                        ? (pagesBreak = true, p + ' ')
-                        : (pagesBreak ? (pagesBreak = false, '... ') : '')
+                        ? ((pagesBreak = true) && p + ' ')
+                        : (pagesBreak ? (!(pagesBreak = false) && ('... ')) : '')
                     }
                 </span>)}
             </div>

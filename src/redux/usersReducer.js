@@ -7,7 +7,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 let initialFriendsPage = {
     users: [],
     currentPage: 1,
-    totalUsersCount: 0,
+    totalCount: 0,
     pageUsersSize: 5,
     isFetching: true
 }

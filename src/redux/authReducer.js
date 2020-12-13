@@ -1,13 +1,13 @@
 const SET_AUTH = 'SET_AUTH';
 
-let initialFriendsPage = {
+let initialAuthReducer = {
     id: null,
     email: null,
     login: null,
     isAuth: false
 }
 
-const authReducer = (state = initialFriendsPage, action) => {
+const authReducer = (state = initialAuthReducer, action) => {
     switch (action.type) {
         case SET_AUTH:
 

@@ -1,5 +1,4 @@
-import s from './ProfileInfo.module.css'
-import topImg from './topImage.png'
+import styles from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 
 const ProfileInfo = (props) => {
@@ -9,10 +8,10 @@ const ProfileInfo = (props) => {
     } else {
         return (
             <div>
-                <div>
+{/*                <div>
                     <img alt="" className={s.topImage} src={topImg}/>
-                </div>
-                <div className={s.description}>
+                </div>*/}
+                <div className={styles.description}>
                     <img src={props.profile.photos.large} alt=''/>
                 </div>
                 <div>{props.profile.aboutMe}</div>

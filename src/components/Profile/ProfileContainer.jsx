@@ -1,26 +1,23 @@
 import React from "react";
-import axios from "axios";
 import {connect} from "react-redux";
 import {setUserProfile} from "../../redux/profileReducer";
 import Profile from "./Profile";
 import {withRouter} from "react-router";
+import {userAPI} from "../../api/api";
 
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
 
-//        this.props.toggleIsFetching(true)
-
-
         let userId = this.props.match.params.userId
-        if (!userId) userId =  this.props.auth.id
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
+        if (!userId) userId = this.props.myCurrentAuthId
 
-            .then(response => {
-//                this.props.toggleIsFetching(false)
-                this.props.setUserProfile(response.data)
-            })
+        if (userId > 0) {
+
+            userAPI.getProfile(userId)
+                .then(data => this.props.setUserProfile(data))
+        }
+
     }
 
     render() {
@@ -30,13 +27,11 @@ class ProfileContainer extends React.Component {
     }
 }
 
-
 let WithRouterInfoProfile = withRouter(ProfileContainer)
-
 
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
-    auth: state.auth
+    myCurrentAuthId: state.auth.id
 })
 
 export default connect(mapStateToProps, {setUserProfile})(WithRouterInfoProfile)

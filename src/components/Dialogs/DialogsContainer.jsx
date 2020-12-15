@@ -2,6 +2,18 @@ import {addMessage, updateMessageText} from "../../redux/dialogsReducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 
+let mapStateToProps = (state) => {
+    return {
+        users: state.dialogsPage.users,
+        messages: state.dialogsPage.messages,
+        newMessageText: state.dialogsPage.newMessageText
+    }
+}
+
+const DialogsContainer = connect(mapStateToProps, {addMessage, updateMessageText})(Dialogs)
+
+export default DialogsContainer
+
 /*
 const DialogsContainer = () => {
     return <StoreContext>
@@ -27,15 +39,3 @@ const DialogsContainer = () => {
     </StoreContext>
 }
  */
-
-let mapStateToProps = (state) => {
-    return {
-        users: state.dialogsPage.users,
-        messages: state.dialogsPage.messages,
-        newMessageText: state.dialogsPage.newMessageText
-    }
-}
-
-const DialogsContainer =connect(mapStateToProps, {addMessage, updateMessageText})(Dialogs)
-
-export default DialogsContainer

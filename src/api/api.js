@@ -26,13 +26,13 @@ export const userAPI = {
     setUnfollow(userId) {
         return instance.delete(`follow/` + userId)
             .then(response => response.data)
-    },
+    }
+}
 
-    getAuthMe() {
+export const authAPI = {
+    getMe() {
         return instance.get(`auth/me`)
             .then(response => response.data)
     }
-
 }
-
 

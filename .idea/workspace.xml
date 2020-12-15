@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c184be3a-a19d-4fcc-b2dd-6f3302d9b97f" name="Default Changelist" comment="add redirect">
-      <change afterPath="$PROJECT_DIR$/src/hoc/withAuthRedirect.js" afterDir="false" />
+    <list default="true" id="c184be3a-a19d-4fcc-b2dd-6f3302d9b97f" name="Default Changelist" comment="add hoc withAuthRedirect.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Preloader/Preloader.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +112,7 @@
       <workItem from="1607839804835" duration="13436000" />
       <workItem from="1607942303991" duration="5303000" />
       <workItem from="1608010201226" duration="1209000" />
-      <workItem from="1608013793994" duration="5812000" />
+      <workItem from="1608013793994" duration="7808000" />
     </task>
     <task id="LOCAL-00001" summary="add shallow copy">
       <created>1606989793417</created>
@@ -214,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608027729527</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add hoc withAuthRedirect.js">
+      <created>1608031281761</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1608031281761</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +251,7 @@
     <MESSAGE value="add apiKeyExample.js + small updates in page numbers generator on users page" />
     <MESSAGE value="add yarn" />
     <MESSAGE value="add redirect" />
-    <option name="LAST_COMMIT_MESSAGE" value="add redirect" />
+    <MESSAGE value="add hoc withAuthRedirect.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="add hoc withAuthRedirect.js" />
   </component>
 </project>

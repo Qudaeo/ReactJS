@@ -1,5 +1,6 @@
 import styles from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
 
@@ -8,14 +9,15 @@ const ProfileInfo = (props) => {
     } else {
         return (
             <div>
-{/*                <div>
-                    <img alt="" className={s.topImage} src={topImg}/>
-                </div>*/}
-                <div className={styles.description}>
+                <div className={styles.ava}>
                     <img src={props.profile.photos.large} alt=''/>
                 </div>
-                <div>{props.profile.aboutMe}</div>
                 <div>{props.profile.fullName}</div>
+                <ProfileStatus status='Enter your status'/>
+
+
+                <div>{props.profile.aboutMe}</div>
+
                 <div>{props.profile.lookingForAJobDescription}</div>
                 <div>{props.profile.contacts.facebook}</div>
                 <div>{props.profile.contacts.github}</div>

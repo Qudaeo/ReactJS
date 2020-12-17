@@ -1,4 +1,4 @@
-import {authAPI, userAPI} from "../api/api";
+import {authAPI, profileAPI} from "../api/api";
 import {setUserProfile} from "./profileReducer";
 
 const SET_AUTH = 'SET_AUTH';
@@ -34,7 +34,7 @@ export const getAuthMe = () => (dispatch) => {
                 let {id, email, login} = data.data
                 dispatch(setAuthUserData(id, email, login))
 
-                userAPI.getProfile(id).then(data => {
+                profileAPI.getProfile(id).then(data => {
                     dispatch(setUserProfile(data))
                 })
             }

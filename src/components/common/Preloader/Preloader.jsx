@@ -1,8 +1,21 @@
-import preloader from '../../../assets/images/preloader.gif'
+import styles from './Preloader.module.css'
 
 const Preloader = () => {
     return <div>
-        <img src = {preloader} alt='' />
+        <div className={styles.ldsSpinner}>
+            <div/>
+            <div/>
+            <div/>
+            <div/>
+            <div/>
+            <div/>
+            <div/>
+            <div/>
+            <div/>
+            <div/>
+            <div/>
+            <div/>
+        </div>
     </div>
 }
 

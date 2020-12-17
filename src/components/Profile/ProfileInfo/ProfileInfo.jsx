@@ -3,18 +3,17 @@ import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
-
     if (!props.profile) {
         return <Preloader/>
     } else {
         return (
-            <div>
+             <div>
                 <div className={styles.ava}>
                     <img src={props.profile.photos.large} alt=''/>
                 </div>
                 <div>{props.profile.fullName}</div>
-                <ProfileStatus status='Enter your status'/>
-
+                <ProfileStatus status={props.status}
+                               updateStatus={props.updateStatus}/>
 
                 <div>{props.profile.aboutMe}</div>
 

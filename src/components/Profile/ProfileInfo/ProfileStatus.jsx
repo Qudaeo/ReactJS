@@ -3,12 +3,24 @@ import React from "react";
 class ProfileStatus extends React.Component {
     state = {
         editMode: false,
-        status: this.props.status
+        status: ''
     }
 
-    toggleEditMode = (e) => {
-        this.setState({editMode: !this.state.editMode})
-        this.state.editMode && this.props.updateStatus(e.currentTarget.value)
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.status !== this.props.status)
+            this.setState({status: this.props.status})
+    }
+
+    enableEditMode = () => {
+        this.setState({
+            editMode: true/*,
+            status: this.props.status*/
+        })
+    }
+
+    disableEditMode = (e) => {
+        this.setState({editMode: false})
+        this.props.updateStatus(e.currentTarget.value)
     }
 
     render() {
@@ -19,7 +31,7 @@ class ProfileStatus extends React.Component {
                     ?
                     <div>
                         <input
-                            onBlur={this.toggleEditMode}
+                            onBlur={this.disableEditMode}
                             value={this.state.status}
                             onChange={(e) => {
                                 this.setState({status: e.target.value})
@@ -29,7 +41,8 @@ class ProfileStatus extends React.Component {
                     </div>
                     :
                     <div>
-                        <span onClick={(e) => this.toggleEditMode(e)}>{this.props.status}</span>
+                        <span onClick={this.enableEditMode}>{this.props.status || 'Enter your status'}
+                        </span>
                     </div>
                 }
             </>

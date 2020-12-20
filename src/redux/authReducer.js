@@ -1,5 +1,4 @@
-import {authAPI, profileAPI} from "../api/api";
-import {setUserProfile} from "./profileReducer";
+import {authAPI} from "../api/api";
 
 const SET_AUTH = 'SET_AUTH';
 
@@ -33,12 +32,19 @@ export const getAuthMe = () => (dispatch) => {
             if (data.resultCode === 0) {
                 let {id, email, login} = data.data
                 dispatch(setAuthUserData(id, email, login))
-
-                profileAPI.getProfile(id).then(data => {
-                    dispatch(setUserProfile(data))
-                })
             }
         })
 }
+
+export const postAuth = (email, password, rememberMe) => (dispatch) => {
+    authAPI.login(email, password, rememberMe).then(
+        data => {
+            if (data.resultCode === 0) {
+               dispatch(getAuthMe())
+            }
+        }
+    )
+}
+
 
 export default authReducer

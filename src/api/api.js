@@ -24,12 +24,18 @@ export const userAPI = {
     }
 }
 
+
 export const authAPI = {
     getMe() {
         return instance.get(`auth/me`)
             .then(response => response.data)
+    },
+    login(email, password, rememberMe) {
+        return instance.post(`auth/login`, {email, password, rememberMe})
+            .then(response => response.data)
     }
 }
+
 
 export const profileAPI = {
     getProfile(userId) {
@@ -38,13 +44,12 @@ export const profileAPI = {
     },
 
     getStatus(userId) {
-        return instance.get(`/profile/status/` + userId)
+        return instance.get(`profile/status/` + userId)
             .then(response => response.data)
     },
 
     updateStatus(status) {
-        return instance.put(`/profile/status`, {status})
+        return instance.put(`profile/status`, {status})
             .then(response => response.data)
     }
 }
-

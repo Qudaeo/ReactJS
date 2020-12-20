@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c184be3a-a19d-4fcc-b2dd-6f3302d9b97f" name="Default Changelist" comment="add local state in ProfileStatus.jsx">
+    <list default="true" id="c184be3a-a19d-4fcc-b2dd-6f3302d9b97f" name="Default Changelist" comment="add componentDidUpdate in ProfileStatus.jsx">
+      <change afterPath="$PROJECT_DIR$/src/components/Login/Login.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +124,8 @@
       <workItem from="1608195694567" duration="14915000" />
       <workItem from="1608218844657" duration="998000" />
       <workItem from="1608302260153" duration="1833000" />
-      <workItem from="1608351309211" duration="5879000" />
+      <workItem from="1608351309211" duration="6006000" />
+      <workItem from="1608429512499" duration="10695000" />
     </task>
     <task id="LOCAL-00001" summary="add shallow copy">
       <created>1606989793417</created>
@@ -267,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608217791149</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add componentDidUpdate in ProfileStatus.jsx">
+      <created>1608393004489</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1608393004489</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,6 +319,7 @@
     <MESSAGE value="add status component ProfileStatus.jsx" />
     <MESSAGE value="update create-react-app to 4.0.1" />
     <MESSAGE value="add local state in ProfileStatus.jsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="add local state in ProfileStatus.jsx" />
+    <MESSAGE value="add componentDidUpdate in ProfileStatus.jsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="add componentDidUpdate in ProfileStatus.jsx" />
   </component>
 </project>

@@ -3,7 +3,7 @@ import {Redirect} from "react-router";
 import {Field, reduxForm} from "redux-form";
 import styles from './Login.module.css'
 import {connect} from "react-redux";
-import {postAuth} from "../../redux/authReducer";
+import {login} from "../../redux/authReducer";
 
 const LoginForm = (props) => {
     return (
@@ -29,7 +29,7 @@ const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 const Login = (props) => {
 
     const onSubmit = (formData) => {
-        props.postAuth(formData.login, formData.password, formData.rememberMe)
+        props.login(formData.login, formData.password, formData.rememberMe)
     }
 
     if (props.isAuth) return <Redirect to='/profile'/>
@@ -42,4 +42,4 @@ const Login = (props) => {
     )
 }
 
-export default connect(null, {postAuth})(Login)
+export default connect(null, {login})(Login)

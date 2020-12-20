@@ -36,7 +36,7 @@ export const getAuthMe = () => (dispatch) => {
         })
 }
 
-export const postAuth = (email, password, rememberMe) => (dispatch) => {
+export const login = (email, password, rememberMe) => (dispatch) => {
     authAPI.login(email, password, rememberMe).then(
         data => {
             if (data.resultCode === 0) {
@@ -46,5 +46,14 @@ export const postAuth = (email, password, rememberMe) => (dispatch) => {
     )
 }
 
+export const logOut = () => (dispatch) => {
+    authAPI.logOut().then(
+        data => {
+            if (data.resultCode === 0) {
+//                dispatch(dispatch(setAuthUserData(null, null, null)))
+            }
+        }
+    )
+}
 
 export default authReducer

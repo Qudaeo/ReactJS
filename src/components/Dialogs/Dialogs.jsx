@@ -1,7 +1,28 @@
 import React from "react";
-import s from './Dialogs.module.css'
+import styles from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./MessageItem/MessageItem";
+import {Field, reduxForm} from "redux-form";
+import {maxLength, required} from "../../utils/validators";
+import {Textarea} from "../common/FormControls/FormControl";
+
+const maxLength30 = maxLength(30)
+
+const DialogsForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div>
+                <Field component={Textarea} name='message' placeholder='Enter your message'
+                       validate={[required, maxLength30]}
+                />
+            </div>
+            <div>
+                <button>Send message</button>
+            </div>
+        </form>
+    )
+}
+const DialogsReduxForm = reduxForm({form: 'dialogs'})(DialogsForm)
 
 const Dialogs = (props) => {
     let userElements = props.users.map(u => <DialogItem
@@ -14,35 +35,22 @@ const Dialogs = (props) => {
         message={m.message}
         isMyMessage={m.isMyMessage}/>)
 
-    let addMessage = () => {
-        props.addMessage()
-    }
-
-    let updateMessageText = (e) => {
-        let text = e.target.value
-        props.updateMessageText(text)
+    let addMessage = (values) => {
+        props.addMessage(values.message)
     }
 
     return (
         <div>
-            <div className={s.Dialogs}>
+            <div className={styles.Dialogs}>
                 <div>
                     {userElements}
                 </div>
-                <div className={s.messages}>
+                <div className={styles.messages}>
                     {messageElements}
                 </div>
             </div>
-            <div className={s.addMessage}>
-                <div>
-                    <textarea
-                        onChange={updateMessageText}
-                        placeholder='Enter your message'
-                        value={props.newMessageText}/>
-                </div>
-                <div>
-                    <button onClick={addMessage}>Send message</button>
-                </div>
+            <div className={styles.addMessage}>
+                <DialogsReduxForm onSubmit={addMessage}/>
             </div>
         </div>
     )

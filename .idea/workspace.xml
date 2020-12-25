@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c184be3a-a19d-4fcc-b2dd-6f3302d9b97f" name="Default Changelist" comment="add auth form in Login.jsx">
+    <list default="true" id="c184be3a-a19d-4fcc-b2dd-6f3302d9b97f" name="Default Changelist" comment="add login/logout">
+      <change afterPath="$PROJECT_DIR$/src/components/common/FormControls/FormControl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/FormControls/FormControl.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/validators.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/dialogsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/dialogsReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +127,9 @@
       <workItem from="1608218844657" duration="998000" />
       <workItem from="1608302260153" duration="1833000" />
       <workItem from="1608351309211" duration="6006000" />
-      <workItem from="1608429512499" duration="14456000" />
+      <workItem from="1608429512499" duration="15267000" />
+      <workItem from="1608559678359" duration="5301000" />
+      <workItem from="1608900432271" duration="8121000" />
     </task>
     <task id="LOCAL-00001" summary="add shallow copy">
       <created>1606989793417</created>
@@ -284,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608458543141</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="add login/logout">
+      <created>1608466156240</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1608466156240</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +339,7 @@
     <MESSAGE value="add local state in ProfileStatus.jsx" />
     <MESSAGE value="add componentDidUpdate in ProfileStatus.jsx" />
     <MESSAGE value="add auth form in Login.jsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="add auth form in Login.jsx" />
+    <MESSAGE value="add login/logout" />
+    <option name="LAST_COMMIT_MESSAGE" value="add login/logout" />
   </component>
 </project>

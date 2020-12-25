@@ -1,5 +1,4 @@
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
+const ADD_MESSAGE = 'ADD_MESSAGE';
 
 let initialDialogPage = {
     users: [
@@ -14,8 +13,7 @@ let initialDialogPage = {
         {id: 3, message: 'yo', isMyMessage: false},
         {id: 4, message: 'yo', isMyMessage: true},
         {id: 5, message: 'yo', isMyMessage: false}
-    ],
-    newMessageText: ''
+    ]
 };
 
 const dialogsReducer = (state = initialDialogPage, action) => {
@@ -23,19 +21,12 @@ const dialogsReducer = (state = initialDialogPage, action) => {
         case ADD_MESSAGE: {
             let newPostElement = {
                 id: 6,
-                message: state.newMessageText,
+                message: action.newMessageText,
                 isMyMessage: true
             }
             return {
                 ...state,
-                messages: [...state.messages, newPostElement],
-                newMessageText: ''
-            }
-        }
-        case UPDATE_MESSAGE_TEXT: {
-            return {
-                ...state,
-                newMessageText: action.newMessageText
+                messages: [...state.messages, newPostElement]
             }
         }
         default:
@@ -43,8 +34,6 @@ const dialogsReducer = (state = initialDialogPage, action) => {
     }
 }
 
-export const addMessage = () => ({type: ADD_MESSAGE});
-export const updateMessageText = (text) =>
-    ({type: UPDATE_MESSAGE_TEXT, newMessageText: text});
+export const addMessage = (newMessageText) => ({type: ADD_MESSAGE, newMessageText});
 
 export default dialogsReducer

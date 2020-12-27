@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c184be3a-a19d-4fcc-b2dd-6f3302d9b97f" name="Default Changelist" comment="add login/logout">
-      <change afterPath="$PROJECT_DIR$/src/components/common/FormControls/FormControl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/FormControls/FormControl.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/validators.js" afterDir="false" />
+    <list default="true" id="c184be3a-a19d-4fcc-b2dd-6f3302d9b97f" name="Default Changelist" comment="add form validator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/dialogsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/dialogsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/LoginContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/LoginContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/authReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +124,8 @@
       <workItem from="1608351309211" duration="6006000" />
       <workItem from="1608429512499" duration="15267000" />
       <workItem from="1608559678359" duration="5301000" />
-      <workItem from="1608900432271" duration="8121000" />
+      <workItem from="1608900432271" duration="8172000" />
+      <workItem from="1609058151709" duration="5028000" />
     </task>
     <task id="LOCAL-00001" summary="add shallow copy">
       <created>1606989793417</created>
@@ -299,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608466156240</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="add form validator">
+      <created>1608910921249</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1608910921249</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,6 +343,7 @@
     <MESSAGE value="add componentDidUpdate in ProfileStatus.jsx" />
     <MESSAGE value="add auth form in Login.jsx" />
     <MESSAGE value="add login/logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="add login/logout" />
+    <MESSAGE value="add form validator" />
+    <option name="LAST_COMMIT_MESSAGE" value="add form validator" />
   </component>
 </project>

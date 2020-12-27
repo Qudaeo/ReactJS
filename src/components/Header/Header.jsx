@@ -1,8 +1,6 @@
 import styles from './Header.module.css'
 import logo from './logo.png'
 import {NavLink} from "react-router-dom";
-import {connect} from "react-redux";
-import {logOut} from "../../redux/authReducer";
 
 const Header = (props) => {
     return (
@@ -12,7 +10,7 @@ const Header = (props) => {
             </NavLink>
             <div className={styles.loginBlock}>
                 {(props.auth.isAuth)
-                    ?<div><span>{props.auth.login}</span><button onClick={props.logOut} >Exit</button></div>
+                    ?<div>{props.auth.login} - <button onClick={props.logOut} >Log out</button></div>
                     :<NavLink to='/login'>Login</NavLink>}
             </div>
 
@@ -20,4 +18,4 @@ const Header = (props) => {
     )
 }
 
-export default connect(null,{logOut})(Header)
+export default Header

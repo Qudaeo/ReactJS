@@ -1,4 +1,4 @@
-import styles from './FormControl.module.css'
+import styles from "./FormControl.module.css"
 
 const FormControl = ({input, meta, ...props}) => {
     let hasError = meta.touched && meta.error

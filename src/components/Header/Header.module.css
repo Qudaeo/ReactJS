@@ -20,3 +20,11 @@
 .loginBlock a {
     text-decoration: none;
 }
+
+.loginBlock button {
+    border-style: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    font: inherit;
+}

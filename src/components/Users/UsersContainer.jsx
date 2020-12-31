@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import {follow, getUsers, unfollow} from '../../redux/usersReducer';
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
-import withAuthRedirect from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import withAuthRedirect from "../../hoc/withAuthRedirect";
 
 class UsersContainer extends React.Component {
     componentDidMount() {

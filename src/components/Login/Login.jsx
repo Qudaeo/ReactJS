@@ -6,6 +6,7 @@ import {Input} from "../common/FormControls/FormControl";
 import {required} from "../../utils/validators";
 
 const LoginForm = props => {
+
     return (
         <form onSubmit={props.handleSubmit}>
             <div className={styles.inputElement}>
@@ -19,6 +20,9 @@ const LoginForm = props => {
             <div className={styles.inputElement}>
                 <Field component='input' name='rememberMe' type='checkbox'/>remember me
             </div>
+            {props.error && <div className={styles.divError}>
+                {props.error}
+            </div>}
             <div>
                 <button>Log in</button>
             </div>

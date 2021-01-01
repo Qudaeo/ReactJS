@@ -80,7 +80,7 @@ const toggleIsFetchingUsers = (isFetchingUsers) => ({type: TOGGLE_IS_FETCHING_US
 const toggleFollowInProcessing =
     (userId, isFetching) => ({type: TOGGLE_FOLLOW_IN_PROCESSING, userId, isFetching});
 
-export const getUsers = (pageUsersSize, currentPage) => (dispatch) => {
+export const requestUsers = (pageUsersSize, currentPage) => (dispatch) => {
     dispatch(toggleIsFetchingUsers(true))
     dispatch(setCurrentPage(currentPage))
 

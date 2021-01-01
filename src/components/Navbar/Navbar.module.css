@@ -5,10 +5,13 @@
     padding-top: 10px;
 }
 
+.item {
+    height: 25px;
+}
+
 .item a{
     color: navy;
     text-decoration: none;
-
 }
 
 .item a.activeLink {

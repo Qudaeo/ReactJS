@@ -5,7 +5,7 @@ import {Field, reduxForm} from "redux-form";
 import {Textarea} from "../../common/FormControls/FormControl";
 import {maxLength, required} from "../../../utils/validators";
 
-const maxLength250 = maxLength(50)
+const maxLength250 = maxLength(250)
 
 const AddNewPost = (props) => {
     return (
@@ -28,11 +28,6 @@ const MyPosts = (props) => {
     const addPost = (values) => {
         props.addPost(values.newPostText)
     }
-
-    /*    const updatePostText = (e) => {
-    let text = e.target.value;
-    props.updatePostText(text)
-    }*/
 
     return (
         <div className={s.myPosts}>

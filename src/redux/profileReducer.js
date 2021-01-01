@@ -1,7 +1,6 @@
 import {profileAPI} from "../api/api";
 
 const ADD_POST = 'ADD_POST';
-/*const UPDATE_POST_TEXT = 'UPDATE_POST_TEXT';*/
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_PROFILE_STATUS = 'SET_PROFILE_STATUS';
 const DEFAULT_STATUS = 'Press to enter your status'
@@ -47,7 +46,6 @@ const profileReducer = (state = initialProfilePage, action) => {
 }
 
 export const addPost = (newPostText) => ({type: ADD_POST, newPostText});
-/*export const updatePostText = (newPostText) => ({type: UPDATE_POST_TEXT, newPostText});*/
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatus = (status) => ({type: SET_PROFILE_STATUS, status});
 
@@ -70,6 +68,5 @@ export const updateStatus = (status) => (dispatch) => {
             dispatch(setStatus(status))
     })
 }
-
 
 export default profileReducer

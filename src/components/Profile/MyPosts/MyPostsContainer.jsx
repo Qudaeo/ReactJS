@@ -2,7 +2,7 @@ import {addPost} from "../../../redux/profileReducer";
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = state => ({
     posts: state.profilePage.posts
 })
 

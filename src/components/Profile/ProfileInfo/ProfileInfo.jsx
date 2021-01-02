@@ -1,30 +1,31 @@
 import styles from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
+import userNoPhoto from "../../../assets/images/userNoPhoto.png";
 
-const ProfileInfo = (props) => {
-    if (!props.profile) {
+const ProfileInfo = ({profile, status, updateStatus}) => {
+    if (!profile) {
         return <Preloader/>
     } else {
         return (
-             <div>
+            <div>
                 <div className={styles.ava}>
-                    <img src={props.profile.photos.large} alt=''/>
+                    <img src={profile.photos.large!= null ? profile.photos.large : userNoPhoto} alt=''/>
                 </div>
-                <div>{props.profile.fullName}</div>
-                <ProfileStatus status={props.status}
-                               updateStatus={props.updateStatus}/>
+                <div>{profile.fullName}</div>
 
-                <div>{props.profile.aboutMe}</div>
+                <ProfileStatus status={status} updateStatus={updateStatus}/>
 
-                <div>{props.profile.lookingForAJobDescription}</div>
-                <div>{props.profile.contacts.facebook}</div>
-                <div>{props.profile.contacts.github}</div>
-                <div>{props.profile.contacts.instagram}</div>
-                <div>{props.profile.contacts.twitter}</div>
-                <div>{props.profile.contacts.vk}</div>
-                <div>{props.profile.contacts.website}</div>
-                <div>{props.profile.contacts.youtube}</div>
+                <div>{profile.aboutMe}</div>
+
+                <div>{profile.lookingForAJobDescription}</div>
+                <div>{profile.contacts.facebook}</div>
+                <div>{profile.contacts.github}</div>
+                <div>{profile.contacts.instagram}</div>
+                <div>{profile.contacts.twitter}</div>
+                <div>{profile.contacts.vk}</div>
+                <div>{profile.contacts.website}</div>
+                <div>{profile.contacts.youtube}</div>
             </div>
         )
     }

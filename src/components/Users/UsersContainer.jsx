@@ -16,26 +16,35 @@ import {
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        if (this.props.users.length === 0)
-            this.props.getUsers(this.props.pageUsersSize, this.props.currentPage)
+        let {users, pageUsersSize, currentPage, getUsers} = this.props
+        if (users.length === 0) {
+            getUsers(pageUsersSize, currentPage)
+        }
     }
 
-    onChangePage = (pageNumber) => this.props.getUsers(this.props.pageUsersSize, pageNumber)
+    onChangePage = pageNumber => {
+        let {getUsers, pageUsersSize} = this.props
+        getUsers(pageUsersSize, pageNumber)
+    }
 
     render() {
+        let {
+            isFetchingUsers, users, totalUsersCount, pageUsersSize, currentPage,
+            followingInProcessing, follow, unfollow
+        } = this.props
         return <>
-            {this.props.isFetchingUsers && <Preloader/>}
+            {isFetchingUsers && <Preloader/>}
 
             <Users
-                users={this.props.users}
-                totalUsersCount={this.props.totalUsersCount}
-                pageUsersSize={this.props.pageUsersSize}
-                currentPage={this.props.currentPage}
-                followingInProcessing={this.props.followingInProcessing}
+                users={users}
+                totalUsersCount={totalUsersCount}
+                pageUsersSize={pageUsersSize}
+                currentPage={currentPage}
+                followingInProcessing={followingInProcessing}
 
                 onChangePage={this.onChangePage}
-                follow={(userId) => this.props.follow(userId)}
-                unfollow={(userId) => this.props.unfollow(userId)}
+                follow={(userId) => follow(userId)}
+                unfollow={(userId) => unfollow(userId)}
             />
         </>
     }

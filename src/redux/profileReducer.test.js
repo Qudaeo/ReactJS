@@ -10,25 +10,25 @@ let state = {
 }
 
 test('reducer addPost - length new posts should be 5', () => {
-    let action= addPost("new post")
+    let action = addPost("new post")
     let new_state = profileReducer(state, action)
     expect(new_state.posts.length).toBe(5)
 });
 
 test('reducer addPost - new post message should be correct', () => {
-    let action= addPost("new post")
+    let action = addPost("new post")
     let new_state = profileReducer(state, action)
     expect(new_state.posts[4].message).toBe("new post")
 });
 
 test('reducer deletePost - length new posts should be 3', () => {
-    let action= deletePost(2)
+    let action = deletePost(2)
     let new_state = profileReducer(state, action)
     expect(new_state.posts.length).toBe(3)
 });
 
 test('reducer deletePost - length new posts should not change, if postId incorrect', () => {
-    let action= deletePost(1000)
+    let action = deletePost(1000)
     let new_state = profileReducer(state, action)
     expect(new_state.posts.length).toBe(4)
 });

@@ -1,4 +1,4 @@
-const ADD_MESSAGE = 'ADD_MESSAGE';
+const ADD_MESSAGE = '/dialogs/ADD_MESSAGE';
 
 let initialDialogPage = {
     users: [
@@ -34,6 +34,6 @@ const dialogsReducer = (state = initialDialogPage, action) => {
     }
 }
 
-export const addMessage = (newMessageText) => ({type: ADD_MESSAGE, newMessageText});
+export const addMessage = newMessageText => ({type: ADD_MESSAGE, newMessageText});
 
 export default dialogsReducer

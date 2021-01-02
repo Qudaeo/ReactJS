@@ -1,13 +1,14 @@
 import styles from "./FormControl.module.css"
+import React from "react";
 
-const FormControl = ({input, meta, ...props}) => {
-    let hasError = meta.touched && meta.error
+const FormControl = ({meta: {touched, error}, children}) => {
+    const hasError = touched && error
     return <div className={styles.formControl + " " + (hasError ? styles.error : "")}>
         <div>
-            {props.children}
+            {children}
         </div>
         <div>
-            {hasError && <span>{meta.error}</span>}
+            {hasError && <span>{error}</span>}
         </div>
     </div>
 }
@@ -25,3 +26,16 @@ export const Input = (props) => {
         <input {...props.input} {...restProps} />
     </FormControl>
 }
+
+/*
+export const createField = (placeholder, name, validators, component, type) => (
+    <div>
+        <Field
+            placeholder={placeholder}
+            name={name}
+            validate={validators}
+            component={component}
+            type={type}
+        />
+    </div>
+)*/

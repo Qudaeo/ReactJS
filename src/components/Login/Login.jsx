@@ -5,10 +5,10 @@ import styles from "./Login.module.css"
 import {Input} from "../common/FormControls/FormControl";
 import {required} from "../../utils/validators";
 
-const LoginForm = props => {
+const LoginForm = ({handleSubmit, error}) => {
 
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div className={styles.inputElement}>
                 <Field component={Input} validate={[required]} name='email'
                        placeholder='login'/>
@@ -20,8 +20,8 @@ const LoginForm = props => {
             <div className={styles.inputElement}>
                 <Field component='input' name='rememberMe' type='checkbox'/>remember me
             </div>
-            {props.error && <div className={styles.divError}>
-                {props.error}
+            {error && <div className={styles.divError}>
+                {error}
             </div>}
             <div>
                 <button>Log in</button>
@@ -32,20 +32,19 @@ const LoginForm = props => {
 
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
-const Login = props => {
+const Login = ({login, isAuth}) => {
 
     const onSubmit = formData => {
-        props.login(formData.email, formData.password, formData.rememberMe)
+        login(formData.email, formData.password, formData.rememberMe)
     }
 
-    if (props.isAuth) return <Redirect to='/profile'/>
+    if (isAuth) return <Redirect to='/profile'/>
 
     return (
         <div>
             <h2>Login</h2>
             <LoginReduxForm onSubmit={onSubmit}/>
         </div>
-
     )
 }
 

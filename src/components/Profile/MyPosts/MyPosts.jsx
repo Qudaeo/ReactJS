@@ -1,5 +1,5 @@
 import React from "react";
-import s from './MyPosts.module.css';
+import styles from './MyPosts.module.css';
 import Post from "./Post/Post";
 import {Field, reduxForm} from "redux-form";
 import {Textarea} from "../../common/FormControls/FormControl";
@@ -22,15 +22,15 @@ const AddNewPost = (props) => {
 
 const AddNewPostReduxForm = reduxForm({form: 'newPost'})(AddNewPost)
 
-const MyPosts = (props) => {
+const MyPosts = props => {
     let postElements = [...props.posts].reverse().map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
 
-    const addPost = (values) => {
+    const addPost = values => {
         props.addPost(values.newPostText)
     }
 
     return (
-        <div className={s.myPosts}>
+        <div className={styles.myPosts}>
 
             <h3>my posts</h3>
             <AddNewPostReduxForm onSubmit={addPost}/>

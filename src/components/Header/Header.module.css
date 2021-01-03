@@ -15,6 +15,7 @@
     float: right;
     margin-right: 20px;
     margin-top: 13px;
+
 }
 
 .loginBlock a {
@@ -32,6 +33,7 @@
     cursor: pointer;
     outline: none;
     font: inherit;
+    color: inherit;
 }
 
 .loginBlock button:hover {

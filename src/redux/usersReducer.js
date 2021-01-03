@@ -83,7 +83,9 @@ const followSuccess = userId => ({type: FOLLOW_SUCCESS, userId});
 const unfollowSuccess = userId => ({type: UNFOLLOW_SUCCESS, userId});
 const setUsers = (users, totalUsersCount) => ({type: SET_USERS, users, totalUsersCount});
 const setCurrentPage = currentPage => ({type: SET_CURRENT_PAGE, currentPage});
-const toggleIsFetchingUsers = isFetchingUsers => ({type: TOGGLE_IS_FETCHING_USERS, isFetchingUsers});
+const toggleIsFetchingUsers = isFetchingUsers => ({
+    type: TOGGLE_IS_FETCHING_USERS, isFetchingUsers
+});
 const toggleFollowInProcessing = (userId, isFetching) => ({
     type: TOGGLE_FOLLOW_IN_PROCESSING, userId, isFetching
 });

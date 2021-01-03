@@ -7,7 +7,7 @@
 
 .header img {
     height: 36px;
-    padding-left: 15px;
+    padding-left: 25px;
     padding-top: 7px;
 }
 
@@ -32,4 +32,8 @@
     cursor: pointer;
     outline: none;
     font: inherit;
+}
+
+.loginBlock button:hover {
+    color: blue;
 }

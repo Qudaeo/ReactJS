@@ -8,7 +8,7 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
         return <Preloader/>
     } else {
         return (
-            <div>
+            <div className={styles.ProfileBlock}>
                 <div className={styles.ava}>
                     <img src={profile.photos.large!= null ? profile.photos.large : userNoPhoto} alt=''/>
                 </div>

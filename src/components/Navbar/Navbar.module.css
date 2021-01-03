@@ -9,9 +9,13 @@
     height: 25px;
 }
 
-.item a{
+.item a {
     color: navy;
     text-decoration: none;
+}
+
+.item a:hover {
+    color: blue;
 }
 
 .item a.activeLink {

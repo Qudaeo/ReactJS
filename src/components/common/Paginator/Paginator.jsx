@@ -1,8 +1,8 @@
 import React from "react";
 import styles from './Paginator.module.css'
 
-const Paginator = ({totalUsersCount, pageUsersSize, onChangePage, currentPage}) => {
-    let pagesCount = Math.ceil(totalUsersCount / pageUsersSize)
+const Paginator = ({totalItemsCount, pageItemsSize, onChangePage, currentPage}) => {
+    const pagesCount = Math.ceil(totalItemsCount / pageItemsSize)
 
     let pages = []
     for (let i = 1; i <= pagesCount; i++) {
@@ -12,17 +12,18 @@ const Paginator = ({totalUsersCount, pageUsersSize, onChangePage, currentPage}) 
     let pagesBreak = null
 
     return (
-        <div>
-            {pages.map(p => <span key={p} onClick={() => onChangePage(p)}
-                                  className={(currentPage === p) ? styles.selectedPage : ''}>
-                    {
-                        (p < 4 || Math.abs(currentPage - p) < 3 || (pages.length - p < 3))
-                            ? ((pagesBreak = true) && p + ' ')
-                            : (pagesBreak ? (!(pagesBreak = false) && ('... ')) : '')
-                    }
-                </span>)}
+        <div className={styles.paginationBlock}>
+            {pages.map(p => {
+                    return (p < 6 || Math.abs(currentPage - p) < 5 || (pages.length - p < 5))
+                        ? <span key={p} onClick={() => onChangePage(p)}
+                                className={(currentPage === p)
+                                    ? styles.selectedPage
+                                    : ''}>{(pagesBreak = true) && p}
+                          </span>
+                        : (pagesBreak ? (!(pagesBreak = false) && ('...')) : '')
+                }
+            )}
         </div>
-
     )
 }
 

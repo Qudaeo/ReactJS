@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {follow, requestUsers, unfollow} from '../../redux/usersReducer';
 import Users from './Users';
-import Preloader from "../common/Preloader/Preloader";
 import {compose} from "redux";
 import withAuthRedirect from "../../hoc/withAuthRedirect";
 import {
@@ -33,8 +32,6 @@ class UsersContainer extends React.Component {
             followingInProcessing, follow, unfollow
         } = this.props
         return <>
-            {isFetchingUsers && <Preloader/>}
-
             <Users
                 users={users}
                 totalUsersCount={totalUsersCount}
@@ -43,6 +40,7 @@ class UsersContainer extends React.Component {
                 followingInProcessing={followingInProcessing}
 
                 onChangePage={this.onChangePage}
+                isFetchingUsers={isFetchingUsers}
                 follow={(userId) => follow(userId)}
                 unfollow={(userId) => unfollow(userId)}
             />

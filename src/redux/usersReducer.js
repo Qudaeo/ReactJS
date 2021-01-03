@@ -20,22 +20,6 @@ let initialFriendsPage = {
 
 
 const usersReducer = (state = initialFriendsPage, action) => {
-    /*
-    const followUnfollowSuccess = followOrUnfollow => ({
-            ...state,
-            user: updateObjectInArray(state.users, action.userId, "id", {followed: followOrUnfollow})
-                    users: state.users.map(u => {
-                        if (u.id === action.userId)
-                            return {...u, followed: followOrUnfollow}
-                        else
-                            return u
-        })
-
-        }
-    )
-
- */
-
     switch (action.type) {
         case FOLLOW_SUCCESS:
             return {
@@ -63,6 +47,7 @@ const usersReducer = (state = initialFriendsPage, action) => {
         case TOGGLE_IS_FETCHING_USERS:
             return {
                 ...state,
+                users: (action.isFetchingUsers) ? [] : state.users,
                 isFetchingUsers: action.isFetchingUsers
             }
         case TOGGLE_FOLLOW_IN_PROCESSING:

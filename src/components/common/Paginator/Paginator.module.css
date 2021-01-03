@@ -1,7 +1,16 @@
-.selectedPage {
-    font-weight: bold;
+.paginationBlock {
+    margin: 10px;
+    cursor: default;
 }
 
-span {
+.paginationBlock span {
+    padding-left: 4px;
+    padding-right: 4px;
+    color: navy;
     cursor: pointer;
+}
+
+.selectedPage {
+    font-weight: bold;
+    border: 1px solid navy;
 }

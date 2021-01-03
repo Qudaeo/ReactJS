@@ -1,20 +1,24 @@
 import React from "react";
 import Paginator from "../common/Paginator/Paginator";
 import User from "./User";
+import Preloader from "../common/Preloader/Preloader";
 
 const Users = ({
                    users, totalUsersCount, pageUsersSize, currentPage,
-                   onChangePage, followingInProcessing, follow, unfollow
+                   onChangePage, isFetchingUsers, followingInProcessing, follow, unfollow
                }) => {
 
     return (
         <div>
             <Paginator
-                totalUsersCount={totalUsersCount}
-                pageUsersSize={pageUsersSize}
+                totalItemsCount={totalUsersCount}
+                pageItemsSize={pageUsersSize}
                 currentPage={currentPage}
                 onChangePage={onChangePage}
             />
+
+            {isFetchingUsers && <Preloader/>}
+
             <div>
                 {
                     users.map(user => <User key={user.id} user={user}

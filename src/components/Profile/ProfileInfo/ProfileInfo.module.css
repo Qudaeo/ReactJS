@@ -1,12 +1,9 @@
-.topImage {
-    width: 100%;
-    margin-top: 5px;
-}
-
-.ava {
+.ProfileBlock {
+    padding-left: 20px;
     padding-top: 12px;
 }
 
-.ProfileBlock {
-    padding-left: 20px;
+.avaPhoto {
+    max-height: 200px;
+    background-color: white;
 }

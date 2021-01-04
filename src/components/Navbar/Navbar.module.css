@@ -1,7 +1,7 @@
 .nav {
     grid-area: n;
     background-color: ghostwhite;
-    padding-left: 25px;
+    padding-left: 20%;
     padding-top: 10px;
 }
 
@@ -11,6 +11,7 @@
 
 .item a {
     text-decoration: none;
+    color: navy;
 }
 
 .item a:hover {

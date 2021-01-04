@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import styles from './ProfileStatus.module.css'
 
 const ProfileStatus = props => {
 
@@ -30,7 +31,7 @@ const ProfileStatus = props => {
             </div>
             :
             <div>
-                <span onClick={enableEditMode}>{props.status || 'Enter your status'} </span>
+                <span className={styles.status} onClick={enableEditMode}>{props.status || 'Enter your status'} </span>
             </div>
         }
     </>

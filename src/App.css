@@ -5,7 +5,7 @@
             'h h h h'
             'n . c .';
     grid-template-rows: 50px 1fr;
-    grid-template-columns: 1fr 10px 6fr 5px;
+    grid-template-columns: 1fr 10px 5fr 5px;
     /*    grid-column--gap: 7px;*/
     /*    grid-row-gap: 5px;*/
     width: 100%;

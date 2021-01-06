@@ -26,16 +26,3 @@ export const Input = (props) => {
         <input {...props.input} {...restProps} />
     </FormControl>
 }
-
-/*
-export const createField = (placeholder, name, validators, component, type) => (
-    <div>
-        <Field
-            placeholder={placeholder}
-            name={name}
-            validate={validators}
-            component={component}
-            type={type}
-        />
-    </div>
-)*/

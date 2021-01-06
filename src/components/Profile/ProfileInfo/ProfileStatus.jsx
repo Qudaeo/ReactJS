@@ -20,19 +20,13 @@ const ProfileStatus = props => {
 
     return <>
         {(editMode)
-            ?
-            <div>
-                <input
-                    onBlur={disableEditMode}
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value)}
-                    autoFocus={true}
-                />
-            </div>
-            :
-            <div>
-                <span className={styles.status} onClick={enableEditMode}>{props.status || 'Enter your status'} </span>
-            </div>
+            ? <input
+                onBlur={disableEditMode}
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                autoFocus={true}
+            />
+            : <span className={styles.status} onClick={enableEditMode}>{props.status || 'Enter your new status'} </span>
         }
     </>
 }

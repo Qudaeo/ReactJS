@@ -88,7 +88,16 @@ export const saveAvatarPhoto = photoFile => async dispatch => {
     const response = await profileAPI.uploadAvatarPhoto(photoFile)
 
     if (response.resultCode === 0) {
-        dispatch(uploadPhotoSuccess(response.data))
+        dispatch(uploadPhotoSuccess(response.data.photos))
+    }
+}
+
+export const saveProfileData = profile => async (dispatch, getState) => {
+    const response = await profileAPI.putProfileData(profile)
+
+    if (response.resultCode === 0) {
+        let userId = getState().auth.id
+        dispatch(getProfile(userId))
     }
 }
 

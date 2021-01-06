@@ -1,9 +1,18 @@
 .ProfileBlock {
-    padding-left: 20px;
-    padding-top: 12px;
+    padding-left: 10px;
+    padding-top: 5px;
 }
 
 .avaPhoto {
     max-height: 200px;
     background-color: white;
+    margin-top: 5px;
+}
+
+.contacts {
+    margin-top: 10px;
+}
+
+.contact {
+    margin-left: 10px;
 }

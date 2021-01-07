@@ -16,3 +16,9 @@
 .contact {
     margin-left: 10px;
 }
+
+.divError {
+    border: solid 1px red;
+    padding: 5px;
+    color: red;
+}

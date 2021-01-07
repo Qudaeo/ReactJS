@@ -5,7 +5,7 @@ import styles from "./Login.module.css"
 import {Input} from "../common/FormControls/FormControl";
 import {required} from "../../utils/validators";
 
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({captchaURL, handleSubmit, error}) => {
 
     return (
         <form onSubmit={handleSubmit}>
@@ -20,6 +20,14 @@ const LoginForm = ({handleSubmit, error}) => {
             <div className={styles.inputElement}>
                 <Field component='input' name='rememberMe' type='checkbox'/>remember me
             </div>
+            {(captchaURL) && <div>
+                <img src={captchaURL} alt=''/>
+                <div className={styles.inputElement}>
+                    <Field component={Input} validate={[required]} name='captcha'
+                           placeholder='captcha'/>
+                </div>
+            </div>
+            }
             {error && <div className={styles.divError}>
                 {error}
             </div>}
@@ -30,12 +38,16 @@ const LoginForm = ({handleSubmit, error}) => {
     )
 }
 
-const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
+const LoginReduxForm = reduxForm(
+    {
+        form: 'login'
+    }
+)(LoginForm)
 
-const Login = ({login, isAuth}) => {
+const Login = ({isAuth, captchaURL, login}) => {
 
     const onSubmit = formData => {
-        login(formData.email, formData.password, formData.rememberMe)
+        login(formData.email, formData.password, formData.rememberMe, formData.captcha)
     }
 
     if (isAuth) return <Redirect to='/profile'/>
@@ -43,7 +55,7 @@ const Login = ({login, isAuth}) => {
     return (
         <div>
             <h2>Login</h2>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm captchaURL={captchaURL} onSubmit={onSubmit}/>
         </div>
     )
 }

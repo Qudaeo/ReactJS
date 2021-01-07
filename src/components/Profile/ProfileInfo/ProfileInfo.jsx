@@ -16,8 +16,9 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, saveAvatarPhoto, s
     }
 
     const saveProfile = (formData) => {
-        saveProfileData({...profile, ...formData})
-        setEditMode(false)
+        saveProfileData({...profile, ...formData}).then(() =>
+            setEditMode(false)
+        )
     }
 
     return (
@@ -41,7 +42,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, saveAvatarPhoto, s
             <hr/>
 
             {(editMode)
-                ? <ProfileDataForm initialValues ={profile} onSubmit={saveProfile}/>
+                ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={saveProfile}/>
                 : <ProfileData profile={profile} isOwner={isOwner} activateEditMode={() => setEditMode(true)}/>
             }
             <hr/>
@@ -62,7 +63,7 @@ const ProfileData = ({profile, isOwner, activateEditMode}) => {
         <div><b>Skills:</b> {profile.lookingForAJobDescription}</div>
         }
 
-        <div className={styles.contacts}>Contacts:</div>
+        <div className={styles.contacts}><b>Contacts:</b></div>
         {Object.keys(profile.contacts).map(key =>
             <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
         )}

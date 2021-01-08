@@ -4,6 +4,8 @@
 
 .divError {
     border: solid 1px red;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 5px;
     color: red;
 }

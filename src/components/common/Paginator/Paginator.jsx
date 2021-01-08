@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './Paginator.module.css'
+import classnames from 'classnames'
 
 const Paginator = ({totalItemsCount, pageItemsSize, onChangePage, currentPage}) => {
     const pagesCount = Math.ceil(totalItemsCount / pageItemsSize)
@@ -16,9 +17,8 @@ const Paginator = ({totalItemsCount, pageItemsSize, onChangePage, currentPage}) 
             {pages.map(p => {
                     return (p < 6 || Math.abs(currentPage - p) < 5 || (pages.length - p < 5))
                         ? <span key={p} onClick={() => onChangePage(p)}
-                                className={(currentPage === p)
-                                    ? styles.selectedPage
-                                    : ''}>{(pagesBreak = true) && p}
+                                className={classnames({[styles.selectedPage]: currentPage === p})
+                                }>{(pagesBreak = true) && p}
                           </span>
                         : (pagesBreak ? (!(pagesBreak = false) && ('...')) : '')
                 }

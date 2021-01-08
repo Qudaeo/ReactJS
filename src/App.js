@@ -10,6 +10,7 @@ import {connect} from "react-redux";
 import {initialize} from "./redux/appReducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import {getInitialized} from "./redux/appSelectors";
+import {Redirect} from "react-router";
 
 const LoginContainer = lazy(() => import('./components/Login/LoginContainer'))
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'))
@@ -36,11 +37,11 @@ const App = props => {
                     <Route path='/profile/:userId?/' render={() => <ProfileContainer/>}/>
                     <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                     <Route path='/users' render={() => <UsersContainer/>}/>
-
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
-                    <Route exact path='/' render={() => <ProfileContainer/>}/>
+
+                    <Redirect from="/" to="/profile"/>
                 </Suspense>
             </div>
         </div>

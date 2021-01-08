@@ -23,16 +23,21 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, saveAvatarPhoto, s
 
     return (
         <div className={styles.ProfileBlock}>
-            <div>
+            <div className={styles.avaBlock}>
+                <div className={styles.buttonOnImage}>
+                    {
+                        (isOwner) &&
+                        <label className="uploadFile">
+                            <input type='file' onChange={(e) => onChangeAvatarPhoto(e)}/>
+                            Upload new photo
+                        </label>
+                    }
+                </div>
                 <img src={profile.photos.large || userNoPhoto} alt='' className={styles.avaPhoto}/>
             </div>
-            {
-                (isOwner) &&
-                <input type='file' onChange={(e) => onChangeAvatarPhoto(e)}/>
-            }
 
             <div><b>Full name:</b> {profile.fullName}</div>
-            <div><b>Status: </b>
+            <div className={styles.statusBlock}><b>Status: </b>
                 {(isOwner)
                     ? <ProfileStatus status={status} updateStatus={updateStatus}/>
                     : <span>{status}</span>

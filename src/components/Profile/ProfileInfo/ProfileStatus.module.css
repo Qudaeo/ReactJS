@@ -1,5 +1,6 @@
 .status {
     cursor: pointer;
+    font-style: italic;
 }
 
 .status:hover {

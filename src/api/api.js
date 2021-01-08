@@ -23,7 +23,6 @@ export const userAPI = {
     }
 }
 
-
 export const authAPI = {
     getMe() {
         return instance.get(`auth/me`)
@@ -43,7 +42,6 @@ export const authAPI = {
     },
 
 }
-
 
 export const profileAPI = {
     getProfile(userId) {

@@ -27,7 +27,7 @@ const appReducer = (state = initialAppReducer, action: SetInitializedActionType)
 
 const setInitialized = (): SetInitializedActionType => ({type: SET_INITIALIZED});
 
-export const initialize = () => (dispatch: Function) => {
+export const initialize = () => (dispatch: any) => {
     let promise = dispatch(getAuthMe())
 
     Promise.all([promise]).then(

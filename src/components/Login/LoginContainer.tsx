@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import Login from "./Login";
 import {login} from "../../redux/authReducer";
 
-let mapStateToProps = state => ({
+const mapStateToProps = (state: any) => ({
     isAuth: state.auth.isAuth,
     captchaURL: state.auth.captchaURL
 })

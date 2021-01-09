@@ -138,29 +138,29 @@ export const uploadPhotoSuccess = (photos: PhotosType): UploadPhotoSuccessAction
 });
 
 
-export const getProfile = (userId: number) => async (dispatch: Function) => {
+export const getProfile = (userId: number) => async (dispatch: any) => {
     const response = await profileAPI.getProfile(userId)
     dispatch(setUserProfile(response))
 }
 
-export const getStatus = (userId: number) => async (dispatch: Function) => {
+export const getStatus = (userId: number) => async (dispatch: any) => {
     const response = await profileAPI.getStatus(userId)
     dispatch(setStatus(response))
 }
 
-export const updateStatus = (status: string) => async (dispatch: Function) => {
+export const updateStatus = (status: string) => async (dispatch: any) => {
     const response = await profileAPI.updateStatus(status)
     if (response.resultCode === 0)
         dispatch(setStatus(status))
 }
 
-export const saveAvatarPhoto = (photoFile: any) => async (dispatch: Function) => {
+export const saveAvatarPhoto = (photoFile: any) => async (dispatch: any) => {
     const response = await profileAPI.uploadAvatarPhoto(photoFile)
     if (response.resultCode === 0)
         dispatch(uploadPhotoSuccess(response.data.photos))
 }
 
-export const saveProfileData = (profile: ProfileType) => async (dispatch: Function, getState: Function) => {
+export const saveProfileData = (profile: ProfileType) => async (dispatch: any, getState: any) => {
     const response = await profileAPI.putProfileData(profile)
 
     if (response.resultCode === 0) {

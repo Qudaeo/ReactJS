@@ -4,12 +4,17 @@ import MessageItem from "./MessageItem/MessageItem";
 import {Field, reduxForm} from "redux-form";
 import {maxLength, required} from "../../utils/validators";
 import {Textarea} from "../common/FormControls/FormControl";
+import {MessageType, UserType} from "../../types/types";
 
 const maxLength30 = maxLength(30)
 
-const DialogsForm = (props) => {
+type DialogsFormPropsType = {
+    handleSubmit: any
+}
+
+const DialogsForm = ({handleSubmit}: DialogsFormPropsType) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <Field component={Textarea} name='message' placeholder='Enter your message'
                        validate={[required, maxLength30]}
@@ -23,20 +28,22 @@ const DialogsForm = (props) => {
 }
 const DialogsReduxForm = reduxForm({form: 'dialogs'})(DialogsForm)
 
-const Dialogs = (props) => {
-    let userElements = props.users.map(u => <DialogItem
+type DialogsPropsType = {
+    users: Array<UserType>
+    messages: Array<MessageType>
+    addMessage: any
+}
+
+const Dialogs = ({users, messages, addMessage}: DialogsPropsType) => {
+    const userElements = users.map(u => <DialogItem
         key={u.id}
         userId={u.id}
         userName={u.name}/>)
 
-    let messageElements = props.messages.map(m => <MessageItem
+    const messageElements = messages.map(m => <MessageItem
         key={m.id}
         message={m.message}
         isMyMessage={m.isMyMessage}/>)
-
-    let addMessage = (values) => {
-        props.addMessage(values.message)
-    }
 
     return (
         <div>
@@ -49,7 +56,9 @@ const Dialogs = (props) => {
                 </div>
             </div>
             <div className={styles.addMessage}>
-                <DialogsReduxForm onSubmit={addMessage}/>
+                <DialogsReduxForm onSubmit={(values: any) => {
+                    addMessage(values.message)
+                }}/>
             </div>
         </div>
     )

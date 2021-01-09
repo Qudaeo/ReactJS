@@ -1,7 +1,14 @@
 import styles from './Paginator.module.css'
 import classnames from 'classnames'
 
-const Paginator = ({totalItemsCount, pageItemsSize, onChangePage, currentPage}) => {
+type PropsType = {
+    totalItemsCount: number
+    pageItemsSize: number
+    onChangePage: any
+    currentPage: number
+}
+
+const Paginator = ({totalItemsCount, pageItemsSize, onChangePage, currentPage}: PropsType) => {
     const pagesCount = Math.ceil(totalItemsCount / pageItemsSize)
 
     let pages = []
@@ -9,7 +16,7 @@ const Paginator = ({totalItemsCount, pageItemsSize, onChangePage, currentPage}) 
         pages.push(i)
     }
 
-    let pagesBreak = null
+    let pagesBreak = false
 
     return (
         <div className={styles.paginationBlock}>

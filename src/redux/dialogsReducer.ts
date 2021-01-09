@@ -1,15 +1,6 @@
+import {MessageType, UserType} from "../types/types";
+
 const ADD_MESSAGE = 'DIALOGS/AddMessage';
-
-type UserType = {
-    id: number
-    name: string
-}
-
-type MessageType = {
-    id: number
-    message: string
-    isMyMessage: boolean
-}
 
 const initialDialogPage = {
     users: [

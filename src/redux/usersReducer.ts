@@ -131,7 +131,7 @@ const toggleFollowInProcessing = (userId: number, isFetching: boolean):toggleFol
     type: TOGGLE_FOLLOW_IN_PROCESSING, userId, isFetching
 });
 
-export const requestUsers = (pageUsersSize: number, currentPage: number) => async (dispatch: Function) => {
+export const requestUsers = (pageUsersSize: number, currentPage: number) => async (dispatch: any) => {
     dispatch(toggleIsFetchingUsers(true))
     dispatch(setCurrentPage(currentPage))
 
@@ -141,7 +141,7 @@ export const requestUsers = (pageUsersSize: number, currentPage: number) => asyn
     dispatch(setUsers(response.items, response.totalCount))
 }
 
-const followUnfollowFlow = async (dispatch: Function, methodAPI: Function, actionCreator: Function, userId: number) => {
+const followUnfollowFlow = async (dispatch: any, methodAPI: any, actionCreator: any, userId: number) => {
     dispatch(toggleFollowInProcessing(userId, true))
 
     const response = await methodAPI(userId)
@@ -152,11 +152,11 @@ const followUnfollowFlow = async (dispatch: Function, methodAPI: Function, actio
     dispatch(toggleFollowInProcessing(userId, false))
 }
 
-export const follow = (userId: number) => (dispatch: Function) => {
+export const follow = (userId: number) => (dispatch: any) => {
     followUnfollowFlow(dispatch, userAPI.setFollow, followSuccess, userId)
 }
 
-export const unfollow = (userId: number) => (dispatch: Function) => {
+export const unfollow = (userId: number) => (dispatch: any) => {
     followUnfollowFlow(dispatch, userAPI.setUnfollow, unfollowSuccess, userId)
 }
 

@@ -1,17 +1,25 @@
 import styles from './Header.module.css'
 import logo from '../../assets/images/logo.png'
 import {NavLink} from "react-router-dom";
+import { AuthType } from '../../types/types';
 
-const Header = (props) => {
+type HeaderPropsType = {
+    auth: AuthType
+    logout: any
+}
+
+const Header = ({auth, logout}: HeaderPropsType) => {
     return (
         <header className={styles.header}>
             <NavLink to='/profile'>
                 <img className={styles.logo} src={logo} alt="iLike"/>
             </NavLink>
             <div className={styles.loginBlock}>
-                {(props.auth.isAuth)
-                    ?<div><span>{props.auth.login}</span> <button onClick={props.logout} >Logout</button></div>
-                    :<NavLink to='/login'>Login</NavLink>}
+                {(auth.isAuth)
+                    ? <div><span>{auth.login}</span>
+                        <button onClick={logout}>Logout</button>
+                    </div>
+                    : <NavLink to='/login'>Login</NavLink>}
             </div>
 
         </header>

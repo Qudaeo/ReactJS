@@ -1,5 +1,6 @@
 import {profileAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
+import { PhotosType } from "../types/types";
 
 const ADD_POST = 'PROFILE/AddPost';
 const DELETE_POST = 'PROFILE/DeletePost';
@@ -11,11 +12,6 @@ type PostType = {
     id: number
     message: string
     likesCount: number
-}
-
-type PhotosType = {
-    large: string
-    small: string
 }
 
 type ContactsType = {
@@ -30,51 +26,27 @@ type ContactsType = {
 }
 
 type ProfileType = {
-    aboutMe: string | null
+    aboutMe: string
     contacts: ContactsType
     lookingForAJob: boolean
-    lookingForAJobDescription: string | null
+    lookingForAJobDescription: string
     fullName: string | null
     userId: number
     photos: PhotosType
 }
 
-type InitialProfileType = {
-    posts: Array<PostType>
-    status: string
-    profile: any //ProfileType | undefined
-}
-
-const initialProfilePage: InitialProfileType = {
+const initialProfilePage = {
     posts: [
         {id: 1, message: 'Hey, how are you?', likesCount: 3},
         {id: 2, message: 'It\'s my first post!', likesCount: 10},
         {id: 3, message: 'yo yo yo', likesCount: 1},
         {id: 4, message: 'DADA', likesCount: 0}
-    ],
+    ] as Array<PostType>,
     status: '',
-    profile: {
-        aboutMe: null,
-        contacts: {
-            facebook: null,
-            website: null,
-            vk: null,
-            twitter: null,
-            instagram: null,
-            youtube: null,
-            github: null,
-            mainLink: null
-        },
-        lookingForAJob: false,
-        lookingForAJobDescription: null,
-        fullName: null,
-        userId: null,
-        photos: {
-            large: null,
-            small: null
-        }
-    }
+    profile: null as ProfileType | null
 }
+
+type  InitialProfileType = typeof initialProfilePage
 
 type ActionType = {
     type: typeof ADD_POST |
@@ -119,13 +91,12 @@ const profileReducer = (state = initialProfilePage, action: ActionType): Initial
                 status: action.status
             }
         case UPLOAD_PHOTO_SUCCESS:
-            // @ts-ignore
             return {
                 ...state,
                 profile: {
                     ...state.profile,
                     photos: action.photos
-                }
+                } as ProfileType
             }
 
         default:
@@ -133,35 +104,38 @@ const profileReducer = (state = initialProfilePage, action: ActionType): Initial
     }
 }
 
-type AddPostType = {
+type AddPostActionType = {
     type: typeof ADD_POST
     newPostText: string
 }
-export const addPost = (newPostText: string): AddPostType => ({type: ADD_POST, newPostText});
+export const addPost = (newPostText: string): AddPostActionType => ({type: ADD_POST, newPostText});
 
-type DeletePostType = {
+type DeletePostActionType = {
     type: typeof DELETE_POST
     postId: number
 }
-export const deletePost = (postId: number): DeletePostType => ({type: DELETE_POST, postId});
+export const deletePost = (postId: number): DeletePostActionType => ({type: DELETE_POST, postId});
 
-type SetUserProfileType = {
+type SetUserProfileActionType = {
     type: typeof SET_USER_PROFILE
     profile: ProfileType
 }
-export const setUserProfile = (profile: ProfileType): SetUserProfileType => ({type: SET_USER_PROFILE, profile});
+export const setUserProfile = (profile: ProfileType): SetUserProfileActionType => ({type: SET_USER_PROFILE, profile});
 
-type setStatusType = {
+type setStatusActionType = {
     type: typeof SET_PROFILE_STATUS
     status: string
 }
-export const setStatus = (status: string): setStatusType => ({type: SET_PROFILE_STATUS, status});
+export const setStatus = (status: string): setStatusActionType => ({type: SET_PROFILE_STATUS, status});
 
-type UploadPhotoSuccessType = {
+type UploadPhotoSuccessActionType = {
     type: typeof UPLOAD_PHOTO_SUCCESS
     photos: PhotosType
 }
-export const uploadPhotoSuccess = (photos: PhotosType): UploadPhotoSuccessType => ({type: UPLOAD_PHOTO_SUCCESS, photos});
+export const uploadPhotoSuccess = (photos: PhotosType): UploadPhotoSuccessActionType => ({
+    type: UPLOAD_PHOTO_SUCCESS,
+    photos
+});
 
 
 export const getProfile = (userId: number) => async (dispatch: Function) => {

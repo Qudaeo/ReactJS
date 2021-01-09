@@ -11,33 +11,30 @@ type MessageType = {
     isMyMessage: boolean
 }
 
-type InitialDialogType = {
-    users: Array<UserType>
-    messages: Array<MessageType>
-}
-
-const initialDialogPage: InitialDialogType = {
+const initialDialogPage = {
     users: [
         {id: 1, name: 'Dimych'},
         {id: 2, name: 'Pavel'},
         {id: 3, name: 'Yana'},
         {id: 4, name: 'Sasha'}
-    ],
+    ] as Array<UserType>,
     messages: [
         {id: 1, message: 'hey', isMyMessage: false},
         {id: 2, message: 'yo', isMyMessage: true},
         {id: 3, message: 'yo', isMyMessage: false},
         {id: 4, message: 'yo', isMyMessage: true},
         {id: 5, message: 'yo', isMyMessage: false}
-    ]
-};
+    ] as Array<MessageType>
+}
 
-type ActionType = {
+type InitialDialogType = typeof initialDialogPage
+
+type AddMessageActionType = {
     type: typeof ADD_MESSAGE
     newMessageText: string
 }
 
-const dialogsReducer = (state = initialDialogPage, action: ActionType):InitialDialogType => {
+const dialogsReducer = (state = initialDialogPage, action: AddMessageActionType): InitialDialogType => {
     switch (action.type) {
         case ADD_MESSAGE: {
             let newPostElement = {
@@ -55,6 +52,7 @@ const dialogsReducer = (state = initialDialogPage, action: ActionType):InitialDi
     }
 }
 
-export const addMessage = (newMessageText: string):ActionType => ({type: ADD_MESSAGE, newMessageText});
+export const addMessage = (newMessageText: string): AddMessageActionType =>
+    ({type: ADD_MESSAGE, newMessageText});
 
 export default dialogsReducer

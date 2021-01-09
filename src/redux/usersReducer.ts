@@ -1,5 +1,6 @@
 import {userAPI} from "../api/api";
 import {updateObjectInArray} from "../utils/objectHelper";
+import {PhotosType} from "../types/types";
 
 const FOLLOW_SUCCESS = 'USER/FollowSuccess';
 const UNFOLLOW_SUCCESS = 'USER/UnfollowSuccess';
@@ -12,33 +13,22 @@ type UserType = {
     name: string
     id: number
     uniqueUrlName: null
-    photos: {
-        small: null
-        large: null
-    }
+    photos: PhotosType
     status: string
     followed: boolean
 }
 
-type InitialFriendsType = {
-    users: Array<UserType>
-    currentPage: number
-    totalCount: number
-    totalUsersCount: number
-    pageUsersSize: number
-    isFetchingUsers: boolean
-    followingInProcessing: Array<number>
-}
-
-const initialFriendsPage: InitialFriendsType = {
-    users: [],
+const initialFriendsPage = {
+    users: [] as Array<UserType>,
     currentPage: 1,
     totalCount: 0,
     totalUsersCount: 0,
     pageUsersSize: 5,
     isFetchingUsers: true,
-    followingInProcessing: []
+    followingInProcessing: [] as Array<number>
 }
+
+type InitialFriendsType = typeof initialFriendsPage
 
 type ActionType = {
     type: typeof FOLLOW_SUCCESS |
@@ -54,7 +44,6 @@ type ActionType = {
     isFetching: boolean
     isFetchingUsers: boolean
 }
-
 
 const usersReducer = (state = initialFriendsPage, action: ActionType): InitialFriendsType => {
     switch (action.type) {
@@ -100,12 +89,17 @@ const usersReducer = (state = initialFriendsPage, action: ActionType): InitialFr
     }
 }
 
-type FollowSuccessActionType = {
-    type: typeof FOLLOW_SUCCESS | typeof UNFOLLOW_SUCCESS
+type FollowingActionType = {
+    type: typeof FOLLOW_SUCCESS
     userId: number
 }
-const followSuccess = (userId: number): FollowSuccessActionType => ({type: FOLLOW_SUCCESS, userId});
-const unfollowSuccess = (userId: number): FollowSuccessActionType => ({type: UNFOLLOW_SUCCESS, userId});
+const followSuccess = (userId: number): FollowingActionType => ({type: FOLLOW_SUCCESS, userId});
+
+type UnfollowingActionType = {
+    type: typeof UNFOLLOW_SUCCESS
+    userId: number
+}
+const unfollowSuccess = (userId: number): UnfollowingActionType => ({type: UNFOLLOW_SUCCESS, userId});
 
 type SetUsersActionType = {
     type: typeof SET_USERS

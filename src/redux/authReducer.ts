@@ -4,28 +4,22 @@ import {stopSubmit} from 'redux-form'
 const SET_AUTH = 'AUTH/SetAuth';
 const SET_CAPTCHA_URL = 'AUTH/SetCaptchaUrl';
 
-type InitialAuthType = {
-    id: null | number
-    email: null | string
-    login: null | string
-    isAuth: boolean
-    captchaURL: null | string
-}
-
-const initialAuthReducer: InitialAuthType = {
-    id: null,
-    email: null,
-    login: null,
+const initialAuthReducer = {
+    id: null as number | null,
+    email: null as string | null,
+    login: null as string | null,
     isAuth: false,
-    captchaURL: null
+    captchaURL: null as string | null
 }
 
-type ActionType = {
+type InitialAuthType = typeof initialAuthReducer
+
+type SetAuthUserDataActionType = {
     type: typeof SET_AUTH | typeof SET_CAPTCHA_URL
     payload: InitialAuthType
 }
 
-const authReducer = (state = initialAuthReducer, action: ActionType): InitialAuthType => {
+const authReducer = (state = initialAuthReducer, action: SetAuthUserDataActionType): InitialAuthType => {
     switch (action.type) {
         case SET_AUTH:
         case SET_CAPTCHA_URL:
@@ -41,17 +35,14 @@ const authReducer = (state = initialAuthReducer, action: ActionType): InitialAut
 
 const setAuthUserData =
     (id: null | number, email: null | string, login: null | string,
-     isAuth: boolean, captchaURL: null | string): ActionType =>
+     isAuth: boolean, captchaURL: null | string): SetAuthUserDataActionType =>
         ({type: SET_AUTH, payload: {id, email, login, isAuth, captchaURL}});
 
-type SetCaptchaUrlType = {
+type SetCaptchaUrlActionType = {
     type: typeof SET_CAPTCHA_URL,
-    payload: {
-        captchaURL:string
-    }
+    payload: { captchaURL: string }
 }
-
-const setCaptchaURL = (captchaURL: string): SetCaptchaUrlType => ({type: SET_CAPTCHA_URL, payload: {captchaURL}});
+const setCaptchaURL = (captchaURL: string): SetCaptchaUrlActionType => ({type: SET_CAPTCHA_URL, payload: {captchaURL}});
 
 export const getAuthMe = () => async (dispatch: Function) => {
     const response = await authAPI.getMe()

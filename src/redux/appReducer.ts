@@ -1,12 +1,20 @@
 import {getAuthMe} from "./authReducer";
 
-const SET_INITIALIZED = '/app/SET_INITIALIZED';
+const SET_INITIALIZED = '/app/Set_Initialized';
 
-let initialAuthReducer = {
+type InitialAuthReducerType = {
+    initialized:boolean
+}
+
+type ActionType = {
+    type: typeof SET_INITIALIZED
+}
+
+const initialAuthReducer: InitialAuthReducerType = {
     initialized: false
 }
 
-const appReducer = (state = initialAuthReducer, action) => {
+const appReducer = (state = initialAuthReducer, action: ActionType) => {
     switch (action.type) {
         case SET_INITIALIZED:
             return ({
@@ -21,7 +29,7 @@ const appReducer = (state = initialAuthReducer, action) => {
 
 const setInitialized = () => ({type: SET_INITIALIZED});
 
-export const initialize = () => (dispatch) => {
+export const initialize = () => (dispatch: Function) => {
     let promise = dispatch(getAuthMe())
 
     Promise.all([promise]).then(

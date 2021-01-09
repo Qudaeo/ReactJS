@@ -10,8 +10,8 @@ let state = {
 }
 
 test('reducer addPost - length new posts should be 5', () => {
-    let action = addPost("new post")
-    let new_state = profileReducer(state, action)
+    const action = addPost("new post")
+    const new_state = profileReducer(state, action)
     expect(new_state.posts.length).toBe(5)
 });
 

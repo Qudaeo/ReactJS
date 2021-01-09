@@ -1,1 +1,1 @@
-export const getInitialized = state => state.app.initialized
+export const getInitialized = (state) => state.app.initialized

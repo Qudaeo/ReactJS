@@ -1,23 +1,18 @@
 import {authAPI} from "../api/api";
 import {stopSubmit} from 'redux-form'
 
-const SET_AUTH = '/auth/SET_AUTH';
-const SET_CAPTCHA_URL = '/auth/SET_CAPTCHA_URL';
+const SET_AUTH = 'AUTH/SetAuth';
+const SET_CAPTCHA_URL = 'AUTH/SetCaptchaUrl';
 
-type InitialAuthReducerType = {
-    id: null | number
-    email: null | string
-    login: null | string
-    isAuth: boolean
+type InitialAuthType = {
+    id?: null | number
+    email?: null | string
+    login?: null | string
+    isAuth?: boolean
     captchaURL: null | string
 }
 
-type ActionType = {
-    type: typeof SET_AUTH | typeof SET_CAPTCHA_URL
-    payload: Object
-}
-
-const initialAuthReducer: InitialAuthReducerType = {
+const initialAuthReducer: InitialAuthType = {
     id: null,
     email: null,
     login: null,
@@ -25,7 +20,12 @@ const initialAuthReducer: InitialAuthReducerType = {
     captchaURL: null
 }
 
-const authReducer = (state = initialAuthReducer, action: ActionType) => {
+type ActionType = {
+    type: typeof SET_AUTH | typeof SET_CAPTCHA_URL
+    payload: InitialAuthType
+}
+
+const authReducer = (state = initialAuthReducer, action: ActionType): InitialAuthType => {
     switch (action.type) {
         case SET_AUTH:
         case SET_CAPTCHA_URL:
@@ -39,10 +39,12 @@ const authReducer = (state = initialAuthReducer, action: ActionType) => {
     }
 }
 
-const setAuthUserData = (id: null | number, email: null | string, login: null | string, isAuth: boolean, captchaURL: null | string) =>
-    ({type: SET_AUTH, payload: {id, email, login, isAuth, captchaURL}});
+const setAuthUserData =
+    (id: null | number, email: null | string, login: null | string,
+     isAuth: boolean, captchaURL: null | string): ActionType =>
+        ({type: SET_AUTH, payload: {id, email, login, isAuth, captchaURL}});
 
-const setCaptchaURL = (captchaURL: string) => ({type: SET_CAPTCHA_URL, payload: {captchaURL}});
+const setCaptchaURL = (captchaURL: string): ActionType => ({type: SET_CAPTCHA_URL, payload: {captchaURL}});
 
 export const getAuthMe = () => async (dispatch: Function) => {
     const response = await authAPI.getMe()

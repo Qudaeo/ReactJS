@@ -1,4 +1,3 @@
-import React from "react";
 import styles from './Paginator.module.css'
 import classnames from 'classnames'
 

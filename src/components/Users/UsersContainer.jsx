@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import {connect} from 'react-redux';
 import {follow, requestUsers, unfollow} from '../../redux/usersReducer';
 import Users from './Users';
@@ -13,7 +13,7 @@ import {
     getUsers
 } from "../../redux/usersSelectors";
 
-class UsersContainer extends React.Component {
+class UsersContainer extends Component {
     componentDidMount() {
         let {users, pageUsersSize, currentPage, getUsers} = this.props
         if (users.length === 0) {

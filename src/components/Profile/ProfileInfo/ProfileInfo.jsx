@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import { useState } from "react";
 import styles from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";

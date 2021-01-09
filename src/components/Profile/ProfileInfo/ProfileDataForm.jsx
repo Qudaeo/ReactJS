@@ -1,4 +1,3 @@
-import React from "react";
 import {Input, Textarea} from "../../common/FormControls/FormControl";
 import {required} from "../../../utils/validators";
 import {Field, reduxForm} from "redux-form";

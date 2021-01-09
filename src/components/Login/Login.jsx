@@ -1,4 +1,3 @@
-import React from "react"
 import {Redirect} from "react-router";
 import {Field, reduxForm} from "redux-form";
 import styles from "./Login.module.css"

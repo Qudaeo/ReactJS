@@ -1,5 +1,4 @@
 import styles from "./FormControl.module.css"
-import React from "react";
 
 const FormControl = ({meta: {touched, error}, children}) => {
     const hasError = touched && error

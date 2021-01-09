@@ -1,5 +1,4 @@
 import {Redirect} from "react-router";
-import React from "react";
 import {connect} from "react-redux";
 
 const withAuthRedirect = (Component) => {

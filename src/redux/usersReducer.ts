@@ -8,8 +8,20 @@ const SET_CURRENT_PAGE = 'USER/SetCurrentPage';
 const TOGGLE_IS_FETCHING_USERS = 'USER/ToggleIsFetchingUsers';
 const TOGGLE_FOLLOW_IN_PROCESSING = 'USER/ToggleFollowInProcessing';
 
+type UserType = {
+    name: string
+    id: number
+    uniqueUrlName: null
+    photos: {
+        small: null
+        large: null
+    }
+    status: string
+    followed: boolean
+}
+
 type InitialFriendsType = {
-    users: Object
+    users: Array<UserType>
     currentPage: number
     totalCount: number
     totalUsersCount: number
@@ -36,7 +48,7 @@ type ActionType = {
         typeof TOGGLE_IS_FETCHING_USERS |
         typeof TOGGLE_FOLLOW_IN_PROCESSING
     userId: number
-    users: Object
+    users: Array<UserType>
     currentPage: number
     totalUsersCount: number
     isFetching: boolean
@@ -76,7 +88,6 @@ const usersReducer = (state = initialFriendsPage, action: ActionType): InitialFr
                 isFetchingUsers: action.isFetchingUsers
             }
         case TOGGLE_FOLLOW_IN_PROCESSING:
-
             return {
                 ...state,
                 followingInProcessing: action.isFetching
@@ -89,14 +100,40 @@ const usersReducer = (state = initialFriendsPage, action: ActionType): InitialFr
     }
 }
 
-const followSuccess = (userId: number) => ({type: FOLLOW_SUCCESS, userId});
-const unfollowSuccess = (userId: number) => ({type: UNFOLLOW_SUCCESS, userId});
-const setUsers = (users: Object, totalUsersCount: number) => ({type: SET_USERS, users, totalUsersCount});
-const setCurrentPage = (currentPage: number) => ({type: SET_CURRENT_PAGE, currentPage});
-const toggleIsFetchingUsers = (isFetchingUsers: boolean) => ({
-    type: TOGGLE_IS_FETCHING_USERS, isFetchingUsers
-});
-const toggleFollowInProcessing = (userId: number, isFetching: boolean) => ({
+type FollowSuccessActionType = {
+    type: typeof FOLLOW_SUCCESS | typeof UNFOLLOW_SUCCESS
+    userId: number
+}
+const followSuccess = (userId: number): FollowSuccessActionType => ({type: FOLLOW_SUCCESS, userId});
+const unfollowSuccess = (userId: number): FollowSuccessActionType => ({type: UNFOLLOW_SUCCESS, userId});
+
+type SetUsersActionType = {
+    type: typeof SET_USERS
+    users: Array<UserType>
+    totalUsersCount: number
+}
+const setUsers = (users: Array<UserType>, totalUsersCount: number): SetUsersActionType =>
+    ({type: SET_USERS, users, totalUsersCount});
+
+type SetCurrentPageActionType = {
+    type: typeof SET_CURRENT_PAGE
+    currentPage: number
+}
+const setCurrentPage = (currentPage: number): SetCurrentPageActionType => ({type: SET_CURRENT_PAGE, currentPage});
+
+type ToggleIsFetchingUsersType = {
+    type: typeof TOGGLE_IS_FETCHING_USERS
+    isFetchingUsers: boolean
+}
+const toggleIsFetchingUsers = (isFetchingUsers: boolean):ToggleIsFetchingUsersType =>
+    ({type: TOGGLE_IS_FETCHING_USERS, isFetchingUsers});
+
+type toggleFollowInProcessingActionType = {
+    type: typeof TOGGLE_FOLLOW_IN_PROCESSING
+    userId: number
+    isFetching: boolean
+}
+const toggleFollowInProcessing = (userId: number, isFetching: boolean):toggleFollowInProcessingActionType => ({
     type: TOGGLE_FOLLOW_IN_PROCESSING, userId, isFetching
 });
 

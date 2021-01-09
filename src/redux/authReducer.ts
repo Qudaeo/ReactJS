@@ -5,10 +5,10 @@ const SET_AUTH = 'AUTH/SetAuth';
 const SET_CAPTCHA_URL = 'AUTH/SetCaptchaUrl';
 
 type InitialAuthType = {
-    id?: null | number
-    email?: null | string
-    login?: null | string
-    isAuth?: boolean
+    id: null | number
+    email: null | string
+    login: null | string
+    isAuth: boolean
     captchaURL: null | string
 }
 
@@ -44,7 +44,14 @@ const setAuthUserData =
      isAuth: boolean, captchaURL: null | string): ActionType =>
         ({type: SET_AUTH, payload: {id, email, login, isAuth, captchaURL}});
 
-const setCaptchaURL = (captchaURL: string): ActionType => ({type: SET_CAPTCHA_URL, payload: {captchaURL}});
+type SetCaptchaUrlType = {
+    type: typeof SET_CAPTCHA_URL,
+    payload: {
+        captchaURL:string
+    }
+}
+
+const setCaptchaURL = (captchaURL: string): SetCaptchaUrlType => ({type: SET_CAPTCHA_URL, payload: {captchaURL}});
 
 export const getAuthMe = () => async (dispatch: Function) => {
     const response = await authAPI.getMe()

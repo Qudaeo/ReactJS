@@ -131,11 +131,11 @@ const toggleFollowInProcessing = (userId: number, isFetching: boolean):toggleFol
     type: TOGGLE_FOLLOW_IN_PROCESSING, userId, isFetching
 });
 
-export const requestUsers = (pageUsersSize: number, currentPage: number) => async (dispatch: any) => {
+export const requestUsers = (currentPage: number, pageUsersSize: number) => async (dispatch: any) => {
     dispatch(toggleIsFetchingUsers(true))
     dispatch(setCurrentPage(currentPage))
 
-    const response = await userAPI.getUsers(pageUsersSize, currentPage)
+    const response = await userAPI.getUsers(currentPage, pageUsersSize)
 
     dispatch(toggleIsFetchingUsers(false))
     dispatch(setUsers(response.items, response.totalCount))

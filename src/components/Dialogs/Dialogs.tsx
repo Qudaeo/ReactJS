@@ -5,6 +5,7 @@ import {Field, reduxForm} from "redux-form";
 import {maxLength, required} from "../../utils/validators";
 import {Textarea} from "../common/FormControls/FormControl";
 import {MessageType, UserType} from "../../types/types";
+import {FC} from "react";
 
 const maxLength30 = maxLength(30)
 
@@ -12,7 +13,7 @@ type DialogsFormPropsType = {
     handleSubmit: any
 }
 
-const DialogsForm = ({handleSubmit}: DialogsFormPropsType) => {
+const DialogsForm: FC<DialogsFormPropsType> = ({handleSubmit}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -34,7 +35,7 @@ type DialogsPropsType = {
     addMessage: any
 }
 
-const Dialogs = ({users, messages, addMessage}: DialogsPropsType) => {
+const Dialogs: FC<DialogsPropsType> = ({users, messages, addMessage}) => {
     const userElements = users.map(u => <DialogItem
         key={u.id}
         userId={u.id}

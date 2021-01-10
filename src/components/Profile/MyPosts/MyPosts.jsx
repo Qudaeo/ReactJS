@@ -6,11 +6,12 @@ import {maxLength, required} from "../../../utils/validators";
 
 const maxLength250 = maxLength(250)
 
-const AddNewPost = (props) => {
+const AddNewPost = ({handleSubmit}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
-                <Field component={Textarea} validate={[required, maxLength250]} name ='newPostText' placeholder='Enter your post'/>
+                <Field component={Textarea} validate={[required, maxLength250]} name='newPostText'
+                       placeholder='Enter your post'/>
             </div>
             <div>
                 <button>Add post</button>
@@ -22,7 +23,9 @@ const AddNewPost = (props) => {
 const AddNewPostReduxForm = reduxForm({form: 'newPost'})(AddNewPost)
 
 const MyPosts = props => {
-    let postElements = [...props.posts].reverse().map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
+    const postElements = [...props.posts].reverse().map(
+        p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>
+    )
 
     const addPost = values => {
         props.addPost(values.newPostText)

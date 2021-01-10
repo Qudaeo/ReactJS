@@ -1,24 +1,25 @@
-import { useState } from "react";
+import {useState} from "react";
 import styles from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import userNoPhoto from "../../../assets/images/userNoPhoto.png";
 import ProfileDataForm from "./ProfileDataForm";
 
-const ProfileInfo = ({profile, status, updateStatus, isOwner, saveAvatarPhoto, saveProfileData}) => {
+const ProfileInfo = (
+    {profile, status, updateStatus, isOwner, saveAvatarPhoto, saveProfileData}) => {
     const [editMode, setEditMode] = useState(false)
 
     if (!profile)
         return <Preloader/>
 
     const onChangeAvatarPhoto = (e) => {
-        if (e.target.files.length > 0) saveAvatarPhoto(e.target.files[0])
+        if (e.target.files && (e.target.files.length > 0))
+            saveAvatarPhoto(e.target.files[0])
     }
 
-    const saveProfile = (formData) => {
-        saveProfileData({...profile, ...formData}).then(() =>
-            setEditMode(false)
-        )
+    const saveProfile = async (formData) => {
+        await saveProfileData({...profile, ...formData})
+        setEditMode(false)
     }
 
     return (
@@ -69,6 +70,7 @@ const ProfileData = ({profile, isOwner, activateEditMode}) => {
         }
 
         <div className={styles.contacts}><b>Contacts:</b></div>
+
         {Object.keys(profile.contacts).map(key =>
             <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
         )}

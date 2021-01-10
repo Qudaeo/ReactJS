@@ -1,12 +1,7 @@
 import styles from './Header.module.css'
 import logo from '../../assets/images/logo.png'
 import {NavLink} from "react-router-dom";
-import { AuthType } from '../../types/types';
-
-type HeaderPropsType = {
-    auth: AuthType
-    logout: any
-}
+import { HeaderPropsType } from '../../types/types';
 
 const Header = ({auth, logout}: HeaderPropsType) => {
     return (

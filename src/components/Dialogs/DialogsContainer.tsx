@@ -3,8 +3,20 @@ import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import withAuthRedirect from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {RootStateType} from "../../redux/store";
+import {MessageType, UserType} from "../../types/types";
 
-const mapStateToProps = (state: any) => {
+type MapStateToPropsType = {
+    users: Array<UserType>
+    messages: Array<MessageType>
+    newMessageText: string
+}
+
+type MapDispatchToPropsType = {
+    addMessage: (newMessage: string) => void
+}
+
+const mapStateToProps = (state: RootStateType): MapStateToPropsType => {
     return {
         users: state.dialogsPage.users,
         messages: state.dialogsPage.messages,
@@ -14,7 +26,8 @@ const mapStateToProps = (state: any) => {
 
 const DialogsContainer = compose(
     withAuthRedirect,
-    connect(mapStateToProps, {addMessage})
+    connect<MapStateToPropsType, MapDispatchToPropsType, null, RootStateType>
+    (mapStateToProps, {addMessage})
 )(Dialogs)
 
 export default DialogsContainer

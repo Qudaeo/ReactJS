@@ -8,6 +8,11 @@ export const initialAuth = {
 
 export type AuthType = typeof initialAuth
 
+export type HeaderPropsType = {
+    auth: AuthType
+    logout: () => void
+}
+
 export type PhotosType = {
     large: string
     small: string
@@ -22,4 +27,31 @@ export type MessageType = {
     id: number
     message: string
     isMyMessage: boolean
+}
+
+export type PostType = {
+    id: number
+    message: string
+    likesCount: number
+}
+
+export type ContactsType = {
+    facebook: string
+    website: string
+    vk: string
+    twitter: string
+    instagram: string
+    youtube: string
+    github: string
+    mainLink: string
+}
+
+export type ProfileType = {
+    aboutMe: string
+    contacts: ContactsType
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string | null
+    userId: number
+    photos: PhotosType
 }

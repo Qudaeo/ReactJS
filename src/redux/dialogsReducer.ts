@@ -15,7 +15,8 @@ const initialDialogPage = {
         {id: 3, message: 'yo', isMyMessage: false},
         {id: 4, message: 'yo', isMyMessage: true},
         {id: 5, message: 'yo', isMyMessage: false}
-    ] as Array<MessageType>
+    ] as Array<MessageType>,
+    newMessageText: ''
 }
 
 type InitialDialogType = typeof initialDialogPage

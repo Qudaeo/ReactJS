@@ -1,4 +1,6 @@
 import {getAuthMe} from "./authReducer";
+import {ThunkAction} from "redux-thunk";
+import {RootStateType} from "./store";
 
 const SET_INITIALIZED = 'APP/Set_Initialized';
 
@@ -27,8 +29,10 @@ const appReducer = (state = initialAppReducer, action: SetInitializedActionType)
 
 const setInitialized = (): SetInitializedActionType => ({type: SET_INITIALIZED});
 
-export const initialize = () => (dispatch: any) => {
-    let promise = dispatch(getAuthMe())
+type ThunkType = ThunkAction<void, RootStateType, unknown, SetInitializedActionType>
+
+export const initialize = (): ThunkType => (dispatch) => {
+    const promise = dispatch(getAuthMe())
 
     Promise.all([promise]).then(
         () => dispatch(setInitialized())

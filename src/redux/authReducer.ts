@@ -1,14 +1,13 @@
 import {authAPI} from "../api/api";
 import {stopSubmit} from 'redux-form'
 import {AuthType, initialAuth} from "../types/types";
+import {ThunkAction} from "redux-thunk";
+import {RootStateType} from "./store";
 
 const SET_AUTH = 'AUTH/SetAuth';
 const SET_CAPTCHA_URL = 'AUTH/SetCaptchaUrl';
 
-type SetAuthUserDataActionType = {
-    type: typeof SET_AUTH | typeof SET_CAPTCHA_URL
-    payload: AuthType
-}
+type SetAuthUserDataActionType = setAuthActionType | SetCaptchaUrlActionType
 
 const authReducer = (state = initialAuth, action: SetAuthUserDataActionType): AuthType => {
     switch (action.type) {
@@ -24,6 +23,11 @@ const authReducer = (state = initialAuth, action: SetAuthUserDataActionType): Au
     }
 }
 
+type setAuthActionType = {
+    type: typeof SET_AUTH
+    payload: AuthType
+}
+
 const setAuthUserData =
     (id: null | number, email: null | string, login: null | string,
      isAuth: boolean, captchaURL: null | string): SetAuthUserDataActionType =>
@@ -35,18 +39,20 @@ type SetCaptchaUrlActionType = {
 }
 const setCaptchaURL = (captchaURL: string): SetCaptchaUrlActionType => ({type: SET_CAPTCHA_URL, payload: {captchaURL}});
 
-export const getAuthMe = () => async (dispatch: any) => {
+type ThunkType = ThunkAction<Promise<void>, RootStateType, unknown, SetAuthUserDataActionType>
+
+export const getAuthMe = (): ThunkType => async (dispatch) => {
     const response = await authAPI.getMe()
 
     if (response.resultCode === 0) {
-        let {id, email, login} = response.data
+        const {id, email, login} = response.data
         dispatch(setAuthUserData(id, email, login, true, null))
     }
 }
 
 export const login =
-    (email: string, password: string, rememberMe = false, captcha = '') =>
-        async (dispatch: any) => {
+    (email: string, password: string, rememberMe = false, captcha = ''):ThunkType =>
+        async (dispatch) => {
             const response = await authAPI.login(email, password, rememberMe, captcha)
 
             if (response.resultCode === 0) {
@@ -58,11 +64,12 @@ export const login =
                 }
 
                 const errorMessage = response.messages ? response.messages[0] : "Unknown error"
+// @ts-ignore
                 dispatch(stopSubmit("login", {_error: errorMessage}))
             }
         }
 
-export const logout = () => async (dispatch: any) => {
+export const logout = ():ThunkType => async (dispatch) => {
     const response = await authAPI.logOut()
 
     if (response.resultCode === 0) {

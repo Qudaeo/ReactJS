@@ -1,4 +1,5 @@
 import axios from "axios";
+import {ProfileType} from "../types/types";
 
 const instance = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
@@ -7,29 +8,56 @@ const instance = axios.create({
 })
 
 export const userAPI = {
-    getUsers(currentPage, pageUsersSize) {
+    getUsers(currentPage: number, pageUsersSize: number) {
         return instance.get(`users?count=${pageUsersSize}&page=${currentPage}`)
             .then(response => response.data)
     },
 
-    setFollow(userId) {
+    setFollow(userId: number) {
         return instance.post(`follow/` + userId)
             .then(response => response.data)
     },
 
-    setUnfollow(userId) {
+    setUnfollow(userId: number) {
         return instance.delete(`follow/` + userId)
             .then(response => response.data)
     }
 }
 
+export enum ResultCode {
+    Success = 0,
+    Error = 1
+}
+
+export enum ResultCodeCaptcha {
+    CaptchaIsRequired = 10
+}
+
+type MeResponseType = {
+    data: {
+        id: number
+        email: string
+        login: string
+    }
+    resultCode: ResultCode
+    messages: Array<string>
+}
+
+type LoginPostResponseType = {
+    data: {
+        id: number
+    }
+    resultCode: ResultCode | ResultCodeCaptcha
+    messages: Array<string>
+}
+
 export const authAPI = {
     getMe() {
-        return instance.get(`auth/me`)
+        return instance.get<MeResponseType>(`auth/me`)
             .then(response => response.data)
     },
-    login(email, password, rememberMe, captcha) {
-        return instance.post(`auth/login`, {email, password, rememberMe, captcha})
+    login(email: string, password: string, rememberMe: boolean, captcha: string) {
+        return instance.post<LoginPostResponseType>(`auth/login`, {email, password, rememberMe, captcha})
             .then(response => response.data)
     },
     logOut() {
@@ -44,22 +72,22 @@ export const authAPI = {
 }
 
 export const profileAPI = {
-    getProfile(userId) {
+    getProfile(userId: number) {
         return instance.get(`profile/` + userId)
             .then(response => response.data)
     },
 
-    getStatus(userId) {
+    getStatus(userId: number) {
         return instance.get(`profile/status/` + userId)
             .then(response => response.data)
     },
 
-    updateStatus(status) {
+    updateStatus(status: string) {
         return instance.put(`profile/status`, {status})
             .then(response => response.data)
     },
 
-    uploadAvatarPhoto(photoFile) {
+    uploadAvatarPhoto(photoFile: any) {
         const formData = new FormData();
         formData.append("image", photoFile);
 
@@ -70,7 +98,7 @@ export const profileAPI = {
         }).then(response => response.data)
     },
 
-    putProfileData(profile) {
+    putProfileData(profile: ProfileType) {
         return instance.put(`profile`, profile)
             .then(response => response.data)
     }

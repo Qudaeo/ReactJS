@@ -1,4 +1,4 @@
-import {authAPI} from "../api/api";
+import {authAPI, ResultCode, ResultCodeCaptcha} from "../api/api";
 import {stopSubmit} from 'redux-form'
 import {AuthType, initialAuth} from "../types/types";
 import {ThunkAction} from "redux-thunk";
@@ -42,10 +42,10 @@ const setCaptchaURL = (captchaURL: string): SetCaptchaUrlActionType => ({type: S
 type ThunkType = ThunkAction<Promise<void>, RootStateType, unknown, SetAuthUserDataActionType>
 
 export const getAuthMe = (): ThunkType => async (dispatch) => {
-    const response = await authAPI.getMe()
+    const meData = await authAPI.getMe()
 
-    if (response.resultCode === 0) {
-        const {id, email, login} = response.data
+    if (meData.resultCode === ResultCode.Success) {
+        const {id, email, login} = meData.data
         dispatch(setAuthUserData(id, email, login, true, null))
     }
 }
@@ -55,10 +55,10 @@ export const login =
         async (dispatch) => {
             const response = await authAPI.login(email, password, rememberMe, captcha)
 
-            if (response.resultCode === 0) {
+            if (response.resultCode === ResultCode.Success) {
                 dispatch(getAuthMe())
             } else {
-                if (response.resultCode === 10) {
+                if (response.resultCode === ResultCodeCaptcha.CaptchaIsRequired) {
                     const captchaResponse = await authAPI.getCaptchaURL()
                     dispatch(setCaptchaURL(captchaResponse.url))
                 }

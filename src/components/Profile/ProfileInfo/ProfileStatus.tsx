@@ -7,11 +7,8 @@ type PropsType = {
 }
 
 const ProfileStatus: FC<PropsType> = ({status, updateStatus}) => {
-
     const [editMode, setEditMode] = useState(false)
     const [inputStatus, setInputStatus] = useState('')
-
-//    useEffect(() => setInputStatus(status), [status])
 
     const enableEditMode = () => {
         setEditMode(true)

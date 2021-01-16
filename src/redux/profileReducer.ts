@@ -104,7 +104,7 @@ export const uploadPhotoSuccess = (photos: PhotosType): UploadPhotoSuccessAction
 
 type ThunkType = ThunkAction<Promise<void>, RootStateType, unknown, ActionType>
 
-export const getProfile = (userId: number | null): ThunkType => async (dispatch) => {
+export const getProfile = (userId: number): ThunkType => async (dispatch) => {
     const response = await profileAPI.getProfile(userId)
     dispatch(setUserProfile(response))
 }
@@ -131,7 +131,7 @@ export const saveProfileData = (profile: ProfileType): ThunkType => async (dispa
 
     if (response.resultCode === 0) {
         const userId = getState().auth.id
-        await dispatch(getProfile(userId))
+        userId && await dispatch(getProfile(userId))
     } else {
         const errorMessage = response.messages[0]
         const posBegin = errorMessage.indexOf('(Contacts->', 1)

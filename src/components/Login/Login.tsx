@@ -1,10 +1,18 @@
 import {Redirect} from "react-router";
-import {Field, reduxForm} from "redux-form";
+import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import styles from "./Login.module.css"
 import {Input} from "../common/FormControls/FormControl";
 import {required} from "../../utils/validators";
+import {FC} from "react";
+import {RootStateType} from "../../redux/store";
+import {connect} from "react-redux";
+import {login} from "../../redux/authReducer";
 
-const LoginForm = ({captchaURL, handleSubmit, error}) => {
+type LoginFormOwnPropsType = {
+    captchaURL: string | null
+}
+
+const LoginForm:FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPropsType> & LoginFormOwnPropsType> = ({captchaURL, handleSubmit, error}) => {
 
     return (
         <form onSubmit={handleSubmit}>
@@ -37,14 +45,30 @@ const LoginForm = ({captchaURL, handleSubmit, error}) => {
     )
 }
 
-const LoginReduxForm = reduxForm(
+const LoginReduxForm = reduxForm<LoginFormValuesType, LoginFormOwnPropsType>(
     {
         form: 'login'
     }
 )(LoginForm)
 
-const Login = ({isAuth, captchaURL, login}) => {
-    const onSubmit = (formData) => {
+type MapStateToPropsType = {
+    isAuth: boolean
+    captchaURL: string | null
+}
+
+type MapDispatchToPropsType = {
+    login: (email: string, password: string, rememberMe: boolean, captcha: string) => void
+}
+
+type LoginFormValuesType = {
+    email:string
+    password:string
+    rememberMe:boolean
+    captcha:string
+}
+
+const Login: FC<MapStateToPropsType & MapDispatchToPropsType> = ({isAuth, captchaURL, login}) => {
+    const onSubmit = (formData: LoginFormValuesType) => {
         login(formData.email, formData.password, formData.rememberMe, formData.captcha)
     }
 
@@ -58,4 +82,11 @@ const Login = ({isAuth, captchaURL, login}) => {
     )
 }
 
-export default Login
+const mapStateToProps = (state: RootStateType): MapStateToPropsType => ({
+    isAuth: state.auth.isAuth,
+    captchaURL: state.auth.captchaURL
+})
+
+export default connect<MapStateToPropsType, MapDispatchToPropsType, null, RootStateType>(
+    mapStateToProps, {login}
+)(Login)

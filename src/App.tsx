@@ -1,4 +1,4 @@
-import { useEffect, lazy, Suspense } from 'react';
+import {useEffect, lazy, Suspense, FC} from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
 import {Route} from "react-router-dom";
@@ -11,20 +11,25 @@ import {initialize} from "./redux/appReducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import {getInitialized} from "./redux/appSelectors";
 import {Redirect} from "react-router";
+import {RootStateType} from "./redux/store";
 
-const LoginContainer = lazy(() => import('./components/Login/LoginContainer'))
+const LoginContainer = lazy((): Promise<{ default: any }> => import('./components/Login/Login'))
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'))
 const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'))
 const UsersContainer = lazy(() => import('./components/Users/UsersContainer'))
 
-const App = props => {
+type PropsType = {
+    initialized: boolean
+    initialize: () => void
+}
+
+const App: FC<PropsType> = ({initialized, initialize}) => {
     useEffect(() => {
-        const initialize = props.initialize
-
         initialize()
-    }, [props.initialize])
+    }, [initialize])
 
-    if (!props.initialized) return <Preloader/>
+    if (!initialized)
+        return <Preloader/>
 
     return (
         <div className={'app-wrapper'}>
@@ -48,7 +53,7 @@ const App = props => {
     )
 }
 
-let mapStateToProps = state => ({
+const mapStateToProps = (state: RootStateType) => ({
     initialized: getInitialized(state)
 })
 

@@ -19,8 +19,12 @@ export type PhotosType = {
 }
 
 export type UserType = {
+    followed: boolean
     id: number
     name: string
+    photos: PhotosType
+    status: string
+    uniqueUrlName: null
 }
 
 export type MessageType = {

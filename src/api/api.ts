@@ -1,5 +1,5 @@
 import axios from "axios";
-import {ProfileType} from "../types/types";
+import {AuthType, ProfileType, UserType} from "../types/types";
 
 const instance = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
@@ -7,19 +7,31 @@ const instance = axios.create({
     headers: {"API-KEY": "26818ec0-b02b-4c09-944c-b4d6ca23fec0"}
 })
 
+type GetUsersResponseType = {
+    items: Array<UserType>
+    totalCount: number
+}
+
+type FollowResponseType = {
+    data: Object
+    fieldsErrors: Array<string>
+    messages: Array<string>
+    resultCode: ResultCode
+}
+
 export const userAPI = {
     getUsers(currentPage: number, pageUsersSize: number) {
-        return instance.get(`users?count=${pageUsersSize}&page=${currentPage}`)
+        return instance.get<GetUsersResponseType>(`users?count=${pageUsersSize}&page=${currentPage}`)
             .then(response => response.data)
     },
 
     setFollow(userId: number) {
-        return instance.post(`follow/` + userId)
+        return instance.post<FollowResponseType>(`follow/` + userId)
             .then(response => response.data)
     },
 
     setUnfollow(userId: number) {
-        return instance.delete(`follow/` + userId)
+        return instance.delete<FollowResponseType>(`follow/` + userId)
             .then(response => response.data)
     }
 }
@@ -28,27 +40,29 @@ export enum ResultCode {
     Success = 0,
     Error = 1
 }
-
 export enum ResultCodeCaptcha {
     CaptchaIsRequired = 10
 }
 
 type MeResponseType = {
-    data: {
-        id: number
-        email: string
-        login: string
-    }
+    data: AuthType
     resultCode: ResultCode
     messages: Array<string>
 }
-
 type LoginPostResponseType = {
+    resultCode: ResultCode | ResultCodeCaptcha
+    messages: Array<string>
     data: {
         id: number
     }
-    resultCode: ResultCode | ResultCodeCaptcha
+}
+type LoginDeleteResponseType = {
+    resultCode: ResultCode
     messages: Array<string>
+    data: Object
+}
+type CaptchaUrlGetResponseType = {
+    url: string
 }
 
 export const authAPI = {
@@ -61,14 +75,13 @@ export const authAPI = {
             .then(response => response.data)
     },
     logOut() {
-        return instance.delete(`auth/login`)
+        return instance.delete<LoginDeleteResponseType>(`auth/login`)
             .then(response => response.data)
     },
     getCaptchaURL() {
-        return instance.get(`security/get-captcha-url`)
+        return instance.get<CaptchaUrlGetResponseType>(`security/get-captcha-url`)
             .then(response => response.data)
-    },
-
+    }
 }
 
 export const profileAPI = {
